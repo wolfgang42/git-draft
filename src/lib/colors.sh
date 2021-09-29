@@ -10,6 +10,7 @@
 #
 # ---
 
+# TODO use `tput setaf` etc. to avoid dumping escapes when not a tty
 red() { printf "\e[31m%b\e[0m\n" "$*"; }
 green() { printf "\e[32m%b\e[0m\n" "$*"; }
 yellow() { printf "\e[33m%b\e[0m\n" "$*"; }
