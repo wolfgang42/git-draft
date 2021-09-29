@@ -31,6 +31,12 @@ commands:
   examples:
   - git-draft create
 
+- name: create-from-staged # TODO fold this into create or give it a better name
+  help: Stash the staged files into a new draft
+  
+  examples:
+  - git-draft create-from-staged
+
 - name: describe
   group: Plumbing
   help: Print a description of the draft
