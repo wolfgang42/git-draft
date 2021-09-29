@@ -1,4 +1,6 @@
 random_6char() {
+	# shellcheck disable=SC2018
+	# ^ we genuinely only want ASCII chars
 	tr -dc a-z </dev/urandom | head -c 6
 }
 
