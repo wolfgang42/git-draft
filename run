@@ -1,0 +1,14 @@
+#!/bin/bash
+set -eu -o pipefail
+
+cd "$(dirname "$0")"
+
+if ! command -v bashly &> /dev/null; then
+	shopt -s expand_aliases
+	alias bashly='docker run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) --volume "$PWD:/app" dannyben/bashly'
+fi
+
+bashly generate # TODO quietly
+echo
+
+exec ./git-draft "$@"
