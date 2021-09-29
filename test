@@ -5,6 +5,8 @@ cd "$(dirname "$0")"
 
 shellcheck --shell=bash --external-sources ./run ./test src/**/*.sh tests/test_lib tests/*.sh
 
+./run --help > /dev/null # Regenerate script
+
 for test in tests/*.sh; do
 	bash "$test" &>"${test/.sh/.out}"
 	if ! cmp "${test/.sh/.txt}" "${test/.sh/.out}"; then
