@@ -13,6 +13,8 @@ else
 		# (there's a helpful table in git-status(1))
 		'??' | 'A ' | 'AM')
 			echo $'\t'"$(green + "$filename")";;
+		' M')
+			echo $'\t'"$(blue '*' "$filename")";;
 		*) # Unknown, mysterious status - display as-is
 			echo $'\t'"$(yellow "($status)" "$filename")";;
 		esac
