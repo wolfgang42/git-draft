@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Utilities for tests.
+# 
+# This file should be `source`d by each test.
+
+set -eu -o pipefail
+
+shopt -s expand_aliases
+# shellcheck disable=SC2139
+# ^ we genuinely want this alias to expand at define time; that way we don't have to reevaluate the path
+alias git-draft="$(realpath "$(dirname "$0")/../git-draft")"
+
+test_init() {
+	# Fix these in place so commit hashes don't change
+	export GIT_AUTHOR_NAME=test
+	export GIT_AUTHOR_EMAIL=test@test
+	export GIT_AUTHOR_DATE="1/1/1970 0:00 +0000"
+	export GIT_COMMITTER_NAME=test
+	export GIT_COMMITTER_EMAIL=test@test
+	export GIT_COMMITTER_DATE="1/1/1970 0:00 +0000"
+	
+	tmpdir="$(mktemp --tmpdir --directory git-draft-test.XXXXXXXXXX)"
+	function finish {
+		set +x
+		rm -rf "$tmpdir"
+	}
+	trap finish EXIT
+	
+	cd "$tmpdir"
+	git init --quiet
+	git switch --quiet -c main
+	
+	set -x
+}

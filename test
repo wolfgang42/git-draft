@@ -1,4 +1,16 @@
 #!/bin/bash
 set -eu -o pipefail
 
-shellcheck --shell=bash ./run ./test src/**/*.sh
+cd "$(dirname "$0")"
+
+shellcheck --shell=bash --external-sources ./run ./test src/**/*.sh tests/test_lib tests/*.sh
+
+for test in tests/*.sh; do
+	bash "$test" &>"${test/.sh/.out}"
+	if ! cmp "${test/.sh/.txt}" "${test/.sh/.out}"; then
+		diff --unified "${test/.sh/.txt}" "${test/.sh/.out}"
+		exit 1
+	fi
+done
+
+echo All tests passed!
