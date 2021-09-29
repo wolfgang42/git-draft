@@ -1,0 +1,29 @@
+name: git-draft
+help: Stash, don't save!
+version: 0.0.0
+
+dependencies: [git]
+
+commands:
+- name: commit
+  short: c
+  help: Commit the active draft
+
+  examples:
+  - git-draft commit
+
+- name: status
+  short: st
+  help: Show working tree status, draft-aware version
+  
+  examples:
+  - git-draft status
+
+- name: describe
+  group: Plumbing
+  help: Print a description of the draft
+  args:
+  - name: draft-name
+
+- name: active-is-empty
+  help: "Returns 'y' if the active commit is an empty commit, 'n' otherwise"
