@@ -19,6 +19,12 @@ commands:
   examples:
   - git-draft status
 
+- name: create
+  help: Create a new blank stashed draft
+  
+  examples:
+  - git-draft create
+
 - name: describe
   group: Plumbing
   help: Print a description of the draft
