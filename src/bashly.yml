@@ -50,3 +50,16 @@ commands:
 
 - name: active-is-empty
   help: "Returns 'y' if the active commit is an empty commit, 'n' otherwise"
+
+- name: apply
+  help: "Applies a draft to the working directory (like git apply)"
+  args:
+  - name: draft-name
+    required: true
+  flags:
+  # Flags that come from `git apply`: (TODO bring more in, these are just the ones we need for internal use)
+  - long: --check
+  - long: --3way
+    short: '-3'
+  - long: --reverse
+    short: '-R'
