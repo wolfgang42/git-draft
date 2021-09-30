@@ -26,7 +26,12 @@ commands:
   - git-draft status
 
 - name: create
-  help: Create a new blank stashed draft
+  help: Create a new stashed draft
+  
+  flags:
+  - long: --from-index
+    short: -i
+    help: "Create a draft containing a copy of the index. (This is the only index-aware command.)"
   
   examples:
   - git-draft create
