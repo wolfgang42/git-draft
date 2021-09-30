@@ -36,6 +36,12 @@ commands:
   examples:
   - git-draft create
 
+- name: show
+  help: Show the contents of a draft
+  
+  args:
+  - name: draft-name
+
 - name: describe
   group: Plumbing
   help: Print a description of the draft
