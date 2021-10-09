@@ -1,4 +1,8 @@
 random_6char() {
+	if [[ -v GIT_DRAFT_TEST_RANDOM_6CHAR ]]; then
+		echo "$GIT_DRAFT_TEST_RANDOM_6CHAR"
+		return
+	fi
 	# shellcheck disable=SC2018
 	# ^ we genuinely only want ASCII chars
 	tr -dc a-z </dev/urandom | head -c 6

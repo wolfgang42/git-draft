@@ -7,7 +7,7 @@ shellcheck --shell=bash --external-sources ./run ./test src/**/*.sh tests/test_l
 
 ./run --help > /dev/null # Regenerate script
 
-for test in tests/*.sh; do
+for test in tests/**/*.sh; do
 	if ! bash "$test" &>"${test/.sh/.out}"; then
 		echo "Failure in $test:"
 		cat "${test/.sh/.out}"

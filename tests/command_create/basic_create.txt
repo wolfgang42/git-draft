@@ -1,0 +1,13 @@
++ test_init_git_fixture
++ set +x
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ /home/wolf/src/git-draft/git-draft create
+created new draft main-abcdef
++ /home/wolf/src/git-draft/git-draft show main-abcdef
+commit 70f7d8bfc3cb202db15fd7f32b478cc0aecbf41c
+Author: test <test@test>
+Date:   Thu Jan 1 00:00:00 1970 +0000
+
+    Draft-on: refs/heads/main
++ finish
++ set +x
