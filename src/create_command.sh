@@ -1,12 +1,11 @@
+current_head="$(git rev-parse --symbolic-full-name HEAD)"
+parent="$(git rev-parse HEAD)"
 if [[ -v args[--from-index] ]]; then
-	# Make a commit out of the index
-	current_head="$(git rev-parse --symbolic-full-name HEAD)"
-	index_tree="$(git write-tree)"
-	parent="$(git rev-parse HEAD)"
-	draft_commit="$(git commit-tree "$index_tree" -p "$parent" -m "Draft-on: $current_head" </dev/null)"
+	index_tree="$(git write-tree)" # Get tree of current index
 else
-	draft_commit="$(git rev-parse HEAD)" # TODO actually I think this should be a blank commit *on* HEAD
+	index_tree="$(git rev-parse HEAD^{tree})" # Use tree of current HEAD, with no changes from worktree/index
 fi
+draft_commit="$(git commit-tree "$index_tree" -p "$parent" -m "Draft-on: $current_head" </dev/null)"
 
 draft_name="$(generate_draft_name)"
 
