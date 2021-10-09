@@ -8,7 +8,7 @@ create_get_draft_commit_message() {
 	) | git interpret-trailers --no-divider --if-exists replace --trailer "Draft-on:$current_head"
 }
 
-if git rev-parse HEAD &> /dev/null; then
+if git_branch_has_commits; then
 	parent="$(git rev-parse HEAD)"
 	if [[ -v args[--from-index] ]]; then
 		index_tree="$(git write-tree)" # Get tree of current index

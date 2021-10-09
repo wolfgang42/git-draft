@@ -9,3 +9,7 @@ git_worktree_clean() {
 git_ref_exists() {
 	git show-ref "$1" > /dev/null
 }
+
+git_branch_has_commits() {
+	git rev-parse --verify HEAD >/dev/null 2>&1
+}

@@ -21,7 +21,7 @@ fi
 index_tree="$(git write-tree)"
 
 # Create a commit
-if git rev-parse HEAD &> /dev/null; then
+if git_branch_has_commits; then
 	parent="$(git rev-parse HEAD)"
 	draft_commit="$(git commit-tree "$index_tree" -p "$parent" -F <(stash_get_draft_commit_message) </dev/null)"
 else # No commits yet (orphan branch)
