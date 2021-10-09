@@ -6,6 +6,11 @@ if [[ -v args[--message] ]]; then
 	git_commit_args+=(--message "${args[--message]}")
 fi
 # TODO support $(active_draft_editmsg_file)
+
+# Set an environment variable that can be seen by git hooks, editors, etc during `git commit`,
+# in case someone wants to know when a draft is being committed for some reason.
+export GIT_DRAFT_COMMITTING=1
+
 git commit "${git_commit_args[@]}"
 
 if ! git_worktree_clean; then
