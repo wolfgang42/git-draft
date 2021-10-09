@@ -1,4 +1,4 @@
-if git show-ref refs/git-draft/active > /dev/null; then
+if active_draft_has_name; then
 	echo n # Active draft has name
 elif ! git_worktree_clean; then
 	echo 'n' # Workdir is not clean
