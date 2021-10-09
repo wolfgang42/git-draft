@@ -8,7 +8,7 @@ created new draft main-abcdef
 + git add -A
 + /home/wolf/src/git-draft/git-draft switch main-abcdef
 + /home/wolf/src/git-draft/git-draft list
-refs/drafts/main-abcdef
+* main-abcdef draft on main 
 + /home/wolf/src/git-draft/git-draft commit -m 'make some changes'
 [main 122b9b7] make some changes
  1 file changed, 1 insertion(+), 1 deletion(-)

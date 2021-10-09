@@ -9,8 +9,8 @@ created new draft main-ghijkl
 + /home/wolf/src/git-draft/git-draft switch main-abcdef
 Already up to date!
 + /home/wolf/src/git-draft/git-draft list
-refs/drafts/main-abcdef
-refs/drafts/main-ghijkl
+* main-abcdef draft on main 
+  main-ghijkl draft on main 
 + /home/wolf/src/git-draft/git-draft drop main-abcdef
 Cannot drop an active draft.
 + echo 'drop failed'
@@ -18,6 +18,6 @@ drop failed
 + /home/wolf/src/git-draft/git-draft drop main-ghijkl
 Dropped refs/drafts/main-ghijkl (93c73f0ac2abd78ad8f24b9ec6d2439880f8c362)
 + /home/wolf/src/git-draft/git-draft list
-refs/drafts/main-abcdef
+* main-abcdef draft on main 
 + finish
 + set +x
