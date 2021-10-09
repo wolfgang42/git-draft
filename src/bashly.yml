@@ -42,6 +42,9 @@ commands:
   args:
   - name: draft-name
 
+- name: list
+  help: Print a list of drafts
+
 - name: describe
   group: Plumbing
   help: Print a description of the draft
