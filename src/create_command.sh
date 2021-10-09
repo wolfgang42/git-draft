@@ -1,4 +1,13 @@
 current_head="$(git symbolic-ref HEAD)"
+
+create_get_draft_commit_message() {
+	(
+		if [[ -v args[--message] ]]; then
+			echo "${args[--message]}"
+		fi
+	) | git interpret-trailers --no-divider --if-exists replace --trailer "Draft-on:$current_head"
+}
+
 if git rev-parse HEAD &> /dev/null; then
 	parent="$(git rev-parse HEAD)"
 	if [[ -v args[--from-index] ]]; then
@@ -6,10 +15,10 @@ if git rev-parse HEAD &> /dev/null; then
 	else
 		index_tree="$(git rev-parse HEAD^{tree})" # Use tree of current HEAD, with no changes from worktree/index
 	fi
-	draft_commit="$(git commit-tree "$index_tree" -p "$parent" -m "Draft-on: $current_head" </dev/null)"
+	draft_commit="$(git commit-tree "$index_tree" -p "$parent" -F <(create_get_draft_commit_message) </dev/null)"
 else # No commits yet (orphan branch)
 	empty_tree="$(git hash-object -t tree /dev/null)"
-	draft_commit="$(git commit-tree "$empty_tree" -m "Draft-on: $current_head" </dev/null)"
+	draft_commit="$(git commit-tree "$empty_tree" -F <(create_get_draft_commit_message) </dev/null)"
 fi
 
 draft_name="$(generate_draft_name)"

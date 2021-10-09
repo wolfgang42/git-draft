@@ -10,7 +10,7 @@
 created new draft main-abcdef
 + git add -A
 + /home/wolf/src/git-draft/git-draft show main-abcdef
-commit c53cf52e9ca1b9d0de42e758b2a1fcad76d32444
+commit acc9ecfa624fbea7234dd3b95cf7852f41fdb2ae
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 

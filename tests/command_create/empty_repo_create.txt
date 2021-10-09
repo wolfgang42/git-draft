@@ -11,7 +11,7 @@ nothing to commit (create/copy files and use "git add" to track)
 + /home/wolf/src/git-draft/git-draft create
 created new draft main-abcdef
 + /home/wolf/src/git-draft/git-draft show main-abcdef
-commit 9007963996e7fe2b7c00684e91e069982d142102
+commit 986e396792cfaad3b50e318418080cd85ec91aed
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
