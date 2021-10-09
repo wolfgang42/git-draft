@@ -8,7 +8,11 @@ shellcheck --shell=bash --external-sources ./run ./test src/**/*.sh tests/test_l
 ./run --help > /dev/null # Regenerate script
 
 for test in tests/*.sh; do
-	bash "$test" &>"${test/.sh/.out}"
+	if ! bash "$test" &>"${test/.sh/.out}"; then
+		echo "Failure in $test:"
+		cat "${test/.sh/.out}"
+		exit 1
+	fi
 	if ! cmp "${test/.sh/.txt}" "${test/.sh/.out}"; then
 		diff --unified "${test/.sh/.txt}" "${test/.sh/.out}"
 		exit 1

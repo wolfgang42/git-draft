@@ -1,13 +1,1 @@
-+ echo hi
-+ /home/wolf/src/git-draft/git-draft status
-On branch main
-draft
-
-Changed files:
-	[32m+ example.txt[0m
-+ /home/wolf/src/git-draft/git-draft commit -m 'this is a test'
-[main (root-commit) 3cf4c0f] this is a test
- 1 file changed, 1 insertion(+)
- create mode 100644 example.txt
-+ finish
-+ set +x
+TODO this test is temporarily disabled

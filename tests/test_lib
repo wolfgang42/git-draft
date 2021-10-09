@@ -28,8 +28,11 @@ test_init() {
 	trap finish EXIT
 	
 	cd "$tmpdir"
-	git init --quiet
-	git switch --quiet -c main
 	
 	set -x
+}
+
+test_init_git() {
+	git init --quiet
+	git switch --quiet -c main
 }
