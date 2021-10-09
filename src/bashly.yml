@@ -51,6 +51,18 @@ commands:
   args:
   - name: draft-name
 
+- name: get-commit-message
+  help: Print the commit message for a draft
+  args:
+  - name: draft-name
+    required: true
+
+- name: get-trailers
+  help: Get trailers for a draft (see git-interpret-trailers(1) for details)
+  args:
+  - name: draft-name
+    required: true
+
 - name: active-is-empty
   help: "Returns 'y' if the active commit is an empty commit, 'n' otherwise"
 
