@@ -1,6 +1,6 @@
 if draft_is_active "${args[draft-name]}"; then
-	if [[ -e "$(git_dir)/DRAFT_MESSAGE" ]]; then
-		cat "$(git_dir)/DRAFT_MESSAGE"
+	if [[ -e "$(active_draft_editmsg_file)" ]]; then
+		cat "$(active_draft_editmsg_file)"
 	fi
 	# Trailers
 	echo
