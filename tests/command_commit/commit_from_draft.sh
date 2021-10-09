@@ -7,7 +7,6 @@ test_init_git_fixture
 echo 'foo' > a.txt
 git add -A
 GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef git-draft create -id
-git add -A
 git-draft switch main-abcdef
 
 git-draft list

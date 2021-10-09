@@ -5,7 +5,6 @@
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
 + /home/wolf/src/git-draft/git-draft create -id
 created new draft main-abcdef
-+ git add -A
 + /home/wolf/src/git-draft/git-draft switch main-abcdef
 + /home/wolf/src/git-draft/git-draft list
 * main-abcdef draft on main 
