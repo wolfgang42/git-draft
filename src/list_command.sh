@@ -1,6 +1,10 @@
-active_draft="$(git symbolic-ref refs/git-draft/active | sed 's%refs/drafts/%%')"
+if active_draft_has_name; then
+	active_draft="$(git symbolic-ref refs/git-draft/active | sed 's%refs/drafts/%%')"
+else
+	active_draft=""
+fi
 
-git show-ref | cut -d' ' -f2- | grep -E 'refs/drafts/' | sed 's%refs/drafts/%%' | while read draft ; do
+git show-ref | cut -d' ' -f2- | grep -E 'refs/drafts/'||true | sed 's%refs/drafts/%%' | while read draft ; do
 	if [[ "$draft" == "$active_draft" ]]; then
 		echo -n '* '
 	else
