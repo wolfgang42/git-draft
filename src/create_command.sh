@@ -8,17 +8,19 @@ create_get_draft_commit_message() {
 	) | git interpret-trailers --no-divider --if-exists replace --trailer "Draft-on:$current_head"
 }
 
+if [[ -v args[--from-index] ]]; then
+	index_tree="$(git write-tree)" # Get tree of current index
+elif git_branch_has_commits; then
+	index_tree="$(git rev-parse HEAD^{tree})" # Use tree of current HEAD, with no changes from worktree/index
+else # No commits yet (orphan branch)
+	index_tree="$(git hash-object -t tree /dev/null)"
+fi
+
 if git_branch_has_commits; then
 	parent="$(git rev-parse HEAD)"
-	if [[ -v args[--from-index] ]]; then
-		index_tree="$(git write-tree)" # Get tree of current index
-	else
-		index_tree="$(git rev-parse HEAD^{tree})" # Use tree of current HEAD, with no changes from worktree/index
-	fi
 	draft_commit="$(git commit-tree "$index_tree" -p "$parent" -F <(create_get_draft_commit_message) </dev/null)"
 else # No commits yet (orphan branch)
-	empty_tree="$(git hash-object -t tree /dev/null)"
-	draft_commit="$(git commit-tree "$empty_tree" -F <(create_get_draft_commit_message) </dev/null)"
+	draft_commit="$(git commit-tree "$index_tree" -F <(create_get_draft_commit_message) </dev/null)"
 fi
 
 draft_name="$(generate_draft_name)"
