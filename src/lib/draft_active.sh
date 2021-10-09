@@ -13,3 +13,7 @@ draft_is_active() {
 active_draft_has_name() {
 	git show-ref refs/git-draft/active > /dev/null
 }
+
+active_is_empty() {
+	[[ "$(git_draft active-is-empty)" == "y" ]]
+}
