@@ -36,6 +36,15 @@ commands:
   examples:
   - git-draft create
 
+- name: switch
+  help: Make a different draft into the active draft (stashing the currently active one if it exists)
+  args:
+  - name: draft-name
+    required: true
+    
+  examples:
+  - git-draft switch main-episno
+
 - name: show
   help: Show the contents of a draft
   
