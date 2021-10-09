@@ -16,7 +16,9 @@ for test in tests/**/*.sh; do
 	if [[ ! -e "${test/.sh/.txt}" ]]; then
 		touch "${test/.sh/.txt}"
 	fi
-	if ! cmp "${test/.sh/.txt}" "${test/.sh/.out}"; then
+	if cmp "${test/.sh/.txt}" "${test/.sh/.out}"; then
+		rm "${test/.sh/.out}"
+	else
 		diff --unified "${test/.sh/.txt}" "${test/.sh/.out}" || true
 		read -r -N1 -p "Accept changes, or Fail test? " accept
 		echo
