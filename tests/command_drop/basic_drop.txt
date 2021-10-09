@@ -1,0 +1,23 @@
++ test_init_git_fixture
++ set +x
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ /home/wolf/src/git-draft/git-draft create
+created new draft main-abcdef
++ GIT_DRAFT_TEST_RANDOM_6CHAR=ghijkl
++ /home/wolf/src/git-draft/git-draft create
+created new draft main-ghijkl
++ /home/wolf/src/git-draft/git-draft switch main-abcdef
+Already up to date!
++ /home/wolf/src/git-draft/git-draft list
+refs/drafts/main-abcdef
+refs/drafts/main-ghijkl
++ /home/wolf/src/git-draft/git-draft drop main-abcdef
+Cannot drop an active draft.
++ echo 'drop failed'
+drop failed
++ /home/wolf/src/git-draft/git-draft drop main-ghijkl
+Dropped refs/drafts/main-ghijkl (93c73f0ac2abd78ad8f24b9ec6d2439880f8c362)
++ /home/wolf/src/git-draft/git-draft list
+refs/drafts/main-abcdef
++ finish
++ set +x
