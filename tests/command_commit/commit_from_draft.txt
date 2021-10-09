@@ -1,0 +1,20 @@
++ test_init_git_fixture
++ set +x
++ echo foo
++ git add -A
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ /home/wolf/src/git-draft/git-draft create -id
+created new draft main-abcdef
++ git add -A
++ /home/wolf/src/git-draft/git-draft switch main-abcdef
++ /home/wolf/src/git-draft/git-draft list
+refs/drafts/main-abcdef
++ /home/wolf/src/git-draft/git-draft commit -m 'make some changes'
+[main 122b9b7] make some changes
+ 1 file changed, 1 insertion(+), 1 deletion(-)
++ /home/wolf/src/git-draft/git-draft list
+++ /home/wolf/src/git-draft/git-draft active-is-empty
++ echo 'Active is empty: y'
+Active is empty: y
++ finish
++ set +x
