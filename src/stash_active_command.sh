@@ -12,7 +12,12 @@ stash_get_draft_commit_message() {
 }
 
 # Index everything and get tree of it
-git add -A
+if git_worktree_clean; then
+	had_changes=0
+else
+	had_changes=1
+	git add -A
+fi
 index_tree="$(git write-tree)"
 
 # Create a commit
@@ -35,8 +40,10 @@ else
 	echo "created new draft $draft_name"
 fi
 
-# Clean worktree of changes now that they're in the draft commit
-git show "$draft_commit" | git apply --index --reverse
+if [[ "$had_changes" == 1 ]]; then
+	# Clean worktree of changes now that they're in the draft commit
+	git show --patch "$draft_commit" | git apply --index --reverse
+fi
 
 if ! active_is_empty; then
 	echo 'Assertion error: active draft is not empty after git-draft stash-active!' >&2

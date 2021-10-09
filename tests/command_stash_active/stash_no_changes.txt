@@ -1,0 +1,16 @@
++ test_init_git_fixture
++ set +x
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ /home/wolf/src/git-draft/git-draft stash-active
+created new draft main-abcdef
++ /home/wolf/src/git-draft/git-draft show main-abcdef
+commit 93c73f0ac2abd78ad8f24b9ec6d2439880f8c362
+Author: test <test@test>
+Date:   Thu Jan 1 00:00:00 1970 +0000
+
+    Draft-on: refs/heads/main
++ git status
+On branch main
+nothing to commit, working tree clean
++ finish
++ set +x
