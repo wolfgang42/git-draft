@@ -5,7 +5,7 @@ create_get_draft_commit_message() {
 		if [[ -v args[--message] ]]; then
 			echo "${args[--message]}"
 		fi
-	) | git interpret-trailers --no-divider --if-exists replace --trailer "Draft-on:$current_head"
+	) | git_apply_active_trailers
 }
 
 if [[ -v args[--from-index] ]]; then

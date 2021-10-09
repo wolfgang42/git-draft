@@ -1,5 +1,3 @@
-current_head="$(git symbolic-ref HEAD)"
-
 stash_get_draft_commit_message_raw() {
 	if [[ -e "$(active_draft_editmsg_file)" ]]; then
 		cat "$(active_draft_editmsg_file)"
@@ -8,7 +6,7 @@ stash_get_draft_commit_message_raw() {
 }
 
 stash_get_draft_commit_message() {
-	stash_get_draft_commit_message_raw | git interpret-trailers --no-divider --if-exists replace --trailer "Draft-on:$current_head"
+	stash_get_draft_commit_message_raw | git_apply_active_trailers
 }
 
 # Index everything and get tree of it
