@@ -8,5 +8,5 @@ git show-ref | cut -d' ' -f2- | grep -E 'refs/drafts/' | sed 's%refs/drafts/%%' 
 	fi
 	echo -n "$draft "
 	echo -n "$(git_draft describe "$draft") "
-	git log --oneline --format=%B -n 1 refs/drafts/main-cgqvlx | head -n1 # TODO get message properly
+	git log --oneline --format=%B -n 1 "refs/drafts/$draft" | head -n1 # TODO get message properly
 done
