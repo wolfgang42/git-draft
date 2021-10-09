@@ -1,5 +1,5 @@
 name: git-draft
-help: Stash, don't save!
+help: Stash, don't stage!
 version: 0.0.0
 
 dependencies: [git]
