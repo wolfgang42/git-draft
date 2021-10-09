@@ -50,6 +50,7 @@ commands:
   help: Print a description of the draft
   args:
   - name: draft-name
+    required: true
 
 - name: get-commit-message
   help: Print the commit message for a draft
@@ -61,6 +62,14 @@ commands:
   help: Get trailers for a draft (see git-interpret-trailers(1) for details)
   args:
   - name: draft-name
+    required: true
+
+- name: get-trailer
+  help: Get a trailer for a draft by name
+  args:
+  - name: draft-name
+    required: true
+  - name: trailer-name
     required: true
 
 - name: active-is-empty
