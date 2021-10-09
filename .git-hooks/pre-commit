@@ -9,3 +9,5 @@ if [[ ! -v GIT_DRAFT_COMMITTING ]]; then
 	echo 'You should only commit using `git draft commit`, not `git commit`'
 	exit 1
 fi
+
+"$(git rev-parse --show-toplevel)/test"
