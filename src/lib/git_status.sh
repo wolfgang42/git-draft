@@ -3,7 +3,7 @@ git_changed_files() {
 }
 
 git_worktree_clean() {
-	[ -s "$(git_changed_files)" ]
+	[ -z "$(git_changed_files)" ]
 }
 
 git_ref_exists() {
