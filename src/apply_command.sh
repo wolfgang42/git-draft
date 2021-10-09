@@ -4,4 +4,4 @@ for arg in --check --3way --reverse; do
 		git_apply_args+=("$arg")
 	fi
 done
-run show "${args[draft-name]}" | git apply "${git_apply_args[@]}"
+git_draft show "${args[draft-name]}" | git apply "${git_apply_args[@]}"

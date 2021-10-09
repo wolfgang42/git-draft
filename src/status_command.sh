@@ -1,5 +1,5 @@
 git status | head -n1
-run describe @active
+git_draft describe @active
 echo
 if git_worktree_clean; then
 	echo nothing to commit, working tree clean
