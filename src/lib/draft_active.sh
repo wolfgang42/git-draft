@@ -9,3 +9,7 @@ draft_ref_is_active() {
 draft_is_active() {
 	draft_ref_is_active "refs/drafts/$1"
 }
+
+active_draft_has_name() {
+	git show-ref refs/git-draft/active > /dev/null
+}
