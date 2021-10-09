@@ -10,7 +10,7 @@ Already up to date!
 + /home/wolf/src/git-draft/git-draft stash-active
 stashed draft refs/drafts/main-abcdef
 + /home/wolf/src/git-draft/git-draft show main-abcdef
-commit 7daf646fa065b201a93a61c7bb770e25cbf3f73d
+commit 4c4dae9cdd7cca460b90039cebf1148c164c027f
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 

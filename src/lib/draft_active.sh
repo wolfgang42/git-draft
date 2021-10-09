@@ -7,7 +7,7 @@ draft_ref_is_active() {
 }
 
 draft_is_active() {
-	draft_ref_is_active "refs/drafts/$1"
+	[[ "$1" == "active" ]] || draft_ref_is_active "$(ref_from_name "$1")"
 }
 
 active_draft_has_name() {
