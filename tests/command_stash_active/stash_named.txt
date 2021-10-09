@@ -1,0 +1,39 @@
++ test_init_git_fixture
++ set +x
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ /home/wolf/src/git-draft/git-draft create -m 'Commit message here'
+created new draft main-abcdef
++ /home/wolf/src/git-draft/git-draft switch main-abcdef
+Already up to date!
++ echo foo
++ echo hi
++ /home/wolf/src/git-draft/git-draft stash-active
+stashed draft refs/drafts/main-abcdef
++ /home/wolf/src/git-draft/git-draft show main-abcdef
+commit 7daf646fa065b201a93a61c7bb770e25cbf3f73d
+Author: test <test@test>
+Date:   Thu Jan 1 00:00:00 1970 +0000
+
+    Commit message here
+    
+    Draft-on: refs/heads/main
+
+diff --git a/a.txt b/a.txt
+index f70f10e..257cc56 100644
+--- a/a.txt
++++ b/a.txt
+@@ -1 +1 @@
+-A
++foo
+diff --git a/example.txt b/example.txt
+new file mode 100644
+index 0000000..45b983b
+--- /dev/null
++++ b/example.txt
+@@ -0,0 +1 @@
++hi
++ git status
+On branch main
+nothing to commit, working tree clean
++ finish
++ set +x
