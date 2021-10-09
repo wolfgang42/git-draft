@@ -1,0 +1,42 @@
++ test_init_git_fixture
++ set +x
++ echo foo
++ echo bar
++ echo baz
++ echo bak
++ git add b.txt d.txt
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ /home/wolf/src/git-draft/git-draft create --from-index --delete-from-worktree
+created new draft main-abcdef
++ git add -A
++ /home/wolf/src/git-draft/git-draft show main-abcdef
+commit c53cf52e9ca1b9d0de42e758b2a1fcad76d32444
+Author: test <test@test>
+Date:   Thu Jan 1 00:00:00 1970 +0000
+
+    Draft-on: refs/heads/main
+
+diff --git a/b.txt b/b.txt
+index 223b783..5716ca5 100644
+--- a/b.txt
++++ b/b.txt
+@@ -1 +1 @@
+-B
++bar
+diff --git a/d.txt b/d.txt
+new file mode 100644
+index 0000000..e5f7a48
+--- /dev/null
++++ b/d.txt
+@@ -0,0 +1 @@
++bak
++ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   a.txt
+	new file:   c.txt
+
++ git diff
++ finish
++ set +x
