@@ -1,0 +1,25 @@
++ test_init_git_fixture
++ set +x
++ echo foo
++ git rm b.txt
+rm 'b.txt'
++ echo bar
++ git add a.txt c.txt
++ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   a.txt
+	deleted:    b.txt
+	new file:   c.txt
+
++ /home/wolf/src/git-draft/git-draft status
+On branch main
+draft on main
+
+Changed files:
+	[34m* a.txt[0m
+	[31m- b.txt[0m
+	[32m+ c.txt[0m
++ finish
++ set +x

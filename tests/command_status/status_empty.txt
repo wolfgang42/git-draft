@@ -1,0 +1,12 @@
++ test_init_git_fixture
++ set +x
++ git status
+On branch main
+nothing to commit, working tree clean
++ /home/wolf/src/git-draft/git-draft status
+On branch main
+empty draft on main
+
+nothing to commit, working tree clean
++ finish
++ set +x
