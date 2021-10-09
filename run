@@ -8,7 +8,6 @@ if ! command -v bashly &> /dev/null; then
 	alias bashly='docker run --rm -it -u $(id -u ${USER}):$(id -g ${USER}) --volume "$PWD:/app" dannyben/bashly'
 fi
 
-bashly generate # TODO quietly
-echo
+bashly generate --quiet
 
 exec ./git-draft "$@"
