@@ -28,5 +28,5 @@ git update-ref "refs/drafts/$draft_name" "$draft_commit" ''
 echo "created new draft $draft_name"
 
 if [[ -v args[--delete-from-worktree] ]]; then
-	git_draft apply "$draft_name" --reverse
+	git_draft apply "$draft_name" --index --reverse
 fi

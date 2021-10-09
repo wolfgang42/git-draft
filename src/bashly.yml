@@ -109,6 +109,7 @@ commands:
     short: '-3'
   - long: --reverse
     short: '-R'
+  - long: --index
 
 - name: activate-stashed
   help: "Makes a stashed draft into the active draft (the current active draft must be an empty draft)"

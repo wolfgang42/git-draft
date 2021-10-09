@@ -12,7 +12,6 @@ echo 'bak' > d.txt
 git add b.txt d.txt
 
 GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef git-draft create --from-index --delete-from-worktree
-git add -A
 git-draft show main-abcdef
 git status
 git diff
