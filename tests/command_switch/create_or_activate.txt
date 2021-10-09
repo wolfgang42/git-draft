@@ -1,0 +1,15 @@
++ test_init_git_fixture
++ set +x
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ /home/wolf/src/git-draft/git-draft create
+created new draft main-abcdef
++ set +e
++ /home/wolf/src/git-draft/git-draft switch -c main-abcdef
+Exactly one of draft-name or --create must be passed
++ /home/wolf/src/git-draft/git-draft switch -c main-nonexistent
+Exactly one of draft-name or --create must be passed
++ /home/wolf/src/git-draft/git-draft switch
+Exactly one of draft-name or --create must be passed
++ exit 0
++ finish
++ set +x

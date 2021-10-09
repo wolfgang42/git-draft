@@ -47,7 +47,10 @@ commands:
   help: Make a different draft into the active draft (stashing the currently active one if it exists)
   args:
   - name: draft-name
-    required: true
+  flags:
+  - long: --create
+    short: -c
+    help: "Switch to a new, empty draft"
     
   examples:
   - git-draft switch main-episno
