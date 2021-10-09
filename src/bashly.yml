@@ -45,6 +45,12 @@ commands:
 - name: list
   help: Print a list of drafts
 
+- name: drop
+  help: Delete a draft
+  args:
+  - name: draft-name
+    required: true
+
 - name: describe
   group: Plumbing
   help: Print a description of the draft
