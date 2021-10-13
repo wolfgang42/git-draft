@@ -1,3 +1,6 @@
+#: name: list
+#: help: Print a list of drafts
+
 if active_draft_has_name; then
 	active_draft="$(git symbolic-ref refs/git-draft/active | sed 's%refs/drafts/%%')"
 else

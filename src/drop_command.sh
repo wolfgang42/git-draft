@@ -1,3 +1,9 @@
+#: name: drop
+#: help: Delete a draft
+#: args:
+#: - name: draft-name
+#:   required: true
+
 if draft_is_active "${args[draft-name]}"; then
 	echo "Cannot drop an active draft." 2>&1
 	exit 1

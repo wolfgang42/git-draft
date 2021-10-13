@@ -1,3 +1,9 @@
+#: name: get-commit-message
+#: help: Print the commit message for a draft
+#: args:
+#: - name: draft-name
+#:   required: true
+
 draft_name="${args[draft-name]}"
 
 if draft_is_active "$draft_name"; then

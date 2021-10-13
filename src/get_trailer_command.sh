@@ -1,3 +1,11 @@
+#: name: get-trailer
+#: help: Get a trailer for a draft by name
+#: args:
+#: - name: draft-name
+#:   required: true
+#: - name: trailer-name
+#:   required: true
+
 git_draft get-trailers "${args[draft-name]}" | search="${args[trailer-name]}" awk '
 	BEGIN {
 		seen = 0

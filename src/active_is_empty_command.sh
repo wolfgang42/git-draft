@@ -1,3 +1,6 @@
+#: name: active-is-empty
+#: help: "Returns 'y' if the active commit is an empty commit, 'n' otherwise"
+
 if active_draft_has_name; then
 	echo 'n' # Active draft has name
 elif ! git_worktree_clean; then

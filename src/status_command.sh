@@ -1,3 +1,10 @@
+#: name: status
+#: short: st
+#: help: Show working tree status, draft-aware version
+#: 
+#: examples:
+#: - git-draft status
+
 git status | head -n1
 git_draft describe active
 echo

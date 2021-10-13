@@ -1,3 +1,15 @@
+#: name: switch
+#: help: Make a different draft into the active draft (stashing the currently active one if it exists)
+#: args:
+#: - name: draft-name
+#: flags:
+#: - long: --create
+#:   short: -c
+#:   help: "Switch to a new, empty draft"
+#:   
+#: examples:
+#: - git-draft switch main-episno
+
 if ( [[ -v args[draft-name] ]] && [[ -v args[--create] ]] ) || ( [[ ! -v args[draft-name] ]] && [[ ! -v args[--create] ]] ); then
 	echo 'Exactly one of draft-name or --create must be passed' >&2
 	exit 1

@@ -1,3 +1,21 @@
+#: name: create
+#: help: Create a new stashed draft
+#: 
+#: flags:
+#: - long: --message
+#:   short: -m
+#:   arg: msg
+#:   help: "Use the given <MSG> as the commit message. This will append to the draft's message if it already has one."
+#: - long: --from-index
+#:   short: -i
+#:   help: "Create a draft containing a copy of the index. (This is the only index-aware command.)"
+#: - long: --delete-from-worktree
+#:   short: -d
+#:   help: "After creating the draft, remove any changes it contains from the worktree"
+#: 
+#: examples:
+#: - git-draft create
+
 current_head="$(git symbolic-ref HEAD)"
 
 create_get_draft_commit_message() {

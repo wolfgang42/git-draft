@@ -1,3 +1,9 @@
+#: name: describe
+#: help: Print a description of the draft
+#: args:
+#: - name: draft-name
+#:   required: true
+
 draft_name="${args[draft-name]}"
 
 desc=()

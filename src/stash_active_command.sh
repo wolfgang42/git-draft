@@ -1,3 +1,6 @@
+#: name: stash-active
+#: help: "Makes the current active draft into a staged draft (leaving behind an empty active draft)"
+
 stash_get_draft_commit_message_raw() {
 	if [[ -e "$(active_draft_editmsg_file)" ]]; then
 		cat "$(active_draft_editmsg_file)"

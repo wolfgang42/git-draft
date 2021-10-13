@@ -1,3 +1,16 @@
+#: name: commit
+#: short: c
+#: help: Commit the active draft
+#:
+#: flags:
+#: - long: --message
+#:   short: -m
+#:   arg: msg
+#:   help: "Use the given <MSG> as the commit message. This will discard the draft's message if it has one."
+#:
+#: examples:
+#: - git-draft commit
+
 # TODO support amend drafts
 git add -A
 

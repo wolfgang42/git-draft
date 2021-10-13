@@ -1,3 +1,8 @@
+#: name: activate-stashed
+#: help: "Makes a stashed draft into the active draft (the current active draft must be an empty draft)"
+#: args:
+#: - name: draft-name
+
 if ! active_is_empty; then
 	echo 'Error: can only activate-stashed when an empty draft is active' >&2
 	exit 2
