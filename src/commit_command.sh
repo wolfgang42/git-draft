@@ -32,11 +32,6 @@ if ! git_worktree_clean; then
 	exit 2
 fi
 
-if active_draft_has_name; then
-	# We've successfully made the commit, so the draft can be dropped.
-	git update-ref -d "$active_draft_ref" # NOTE this also deletes the destination ref
-fi
-
 if [[ -e "$(active_draft_editmsg_file)" ]]; then
 	# We've successfully made the commit, so the draft's commit message can be discarded
 	rm "$(active_draft_editmsg_file)"

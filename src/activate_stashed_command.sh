@@ -15,6 +15,6 @@ draft_ref="$(ref_from_name "${args[draft-name]}")"
 # Update the working directory
 git cherry-pick --no-commit --allow-empty "$draft_ref"
 # Update the active draft commit message
-git_draft get-commit-message "$draft_ref" > "$(active_draft_editmsg_file)"
-# Set the active draft ref to the draft
-git symbolic-ref "$active_draft_ref" "$draft_ref"
+git_draft get-commit-message "$draft_ref" | git interpret-trailers --no-divider --if-exists replace --trailer "Draft-ref:$draft_ref" > "$(active_draft_editmsg_file)"
+# Remove the draft commit, so it can't accidentally be used
+git update-ref -d "$draft_ref"

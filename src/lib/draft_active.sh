@@ -1,9 +1,9 @@
 active_draft_ref() {
-	git symbolic-ref refs/git-draft/active # TODO consider memoizing
+	git_draft get-trailer active "Draft-ref" --default 'missing' # TODO consider memoizing
 }
 
 draft_ref_is_active() {
-	active_draft_has_name && [[ "$1" == "$(active_draft_ref)" ]]
+	[[ "$1" == "$(active_draft_ref)" ]]
 }
 
 draft_is_active() {
@@ -11,7 +11,11 @@ draft_is_active() {
 }
 
 active_draft_has_name() {
-	git show-ref refs/git-draft/active > /dev/null # TODO consider memoizing
+	[[ "$(active_draft_ref)" != 'missing' ]]
+}
+
+active_draft_name() {
+	active_draft_ref | sed 's%refs/drafts/%%'
 }
 
 active_is_empty() {

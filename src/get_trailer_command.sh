@@ -5,6 +5,15 @@
 #:   required: true
 #: - name: trailer-name
 #:   required: true
+#: flags:
+#: - long: --default
+#:   arg: value
+#:   help: Value to return if trailer does not exist
+
+if [[ -v args[--default] ]]; then
+	export search_use_default=1
+	export search_default="${args[--default]}"
+fi
 
 git_draft get-trailers "${args[draft-name]}" | search="${args[trailer-name]}" awk '
 	BEGIN {
@@ -16,7 +25,9 @@ git_draft get-trailers "${args[draft-name]}" | search="${args[trailer-name]}" aw
 		seen++
 	}
 	END {
-		if (seen != 1) {
+		if (seen == 0 && ENVIRON["search_use_default"]) {
+			print ENVIRON["search_default"]
+		} else if (seen != 1) {
 			print "Found " seen " results for trailer \"" ENVIRON["search"] "\"" > "/dev/stderr"
 			exit 1
 		}

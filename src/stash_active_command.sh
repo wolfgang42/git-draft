@@ -4,12 +4,11 @@
 stash_get_draft_commit_message_raw() {
 	if [[ -e "$(active_draft_editmsg_file)" ]]; then
 		cat "$(active_draft_editmsg_file)"
-		rm "$(active_draft_editmsg_file)"
 	fi
 }
 
 stash_get_draft_commit_message() {
-	stash_get_draft_commit_message_raw | git_apply_active_trailers
+	stash_get_draft_commit_message_raw | git_apply_active_trailers | git interpret-trailers --no-divider --if-exists=replace --trim-empty --trailer 'Draft-ref:'
 }
 
 # Index everything and get tree of it
@@ -32,8 +31,7 @@ fi
 # Update refs as appropriate
 if active_draft_has_name; then
 	draft_ref="$(active_draft_ref)"
-	git update-ref "$draft_ref" "$draft_commit"
-	git symbolic-ref --delete "$active_draft_ref"
+	git update-ref "$draft_ref" "$draft_commit" ''
 	echo "stashed draft $draft_ref" # TODO use name instead of ref
 else
 	draft_name="$(generate_draft_name)"
@@ -44,6 +42,7 @@ fi
 if [[ "$had_changes" == 1 ]]; then
 	# Clean worktree of changes now that they're in the draft commit
 	git show --patch "$draft_commit" | git apply --index --reverse
+	[[ -e "$(active_draft_editmsg_file)" ]] && rm "$(active_draft_editmsg_file)"
 fi
 
 if ! active_is_empty; then
