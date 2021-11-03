@@ -1,0 +1,34 @@
++ echo Hi
++ /home/wolf/src/git-draft/git-draft get-commit-message --from-stdin
+Hi
++ echo Hi
++ /home/wolf/src/git-draft/git-draft get-commit-message --from-stdin --add-trailer Test-trailer:hello
+Hi
+
+Test-trailer: hello
++ cat
++ /home/wolf/src/git-draft/git-draft get-commit-message --from-stdin
+This is a multi-line commit message.
+
+It has several paragraphs.
+
+Also: a trailer
++ cat
++ /home/wolf/src/git-draft/git-draft get-commit-message --from-stdin --remove-trailer Trailer
+Commit message
+
++ echo Hi
++ /home/wolf/src/git-draft/git-draft get-commit-message --from-stdin -m 'This message will overwrite'
+This message will overwrite
+
++ cat
++ /home/wolf/src/git-draft/git-draft get-commit-message --from-stdin -m 'This message will overwrite'
+This message will overwrite
+
+Trailer: should stay behind
++ cat
++ /home/wolf/src/git-draft/git-draft get-commit-message --from-stdin --parse-trailers
+Trailer: here
+Another: trailer
++ finish
++ set +x

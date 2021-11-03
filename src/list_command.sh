@@ -9,7 +9,7 @@ if ! active_is_empty; then
 		echo -n "$(bold active) "
 	fi
 	echo -n "$(git_draft describe active) "
-	git_draft get-commit-message active | head -n1 # TODO get message properly
+	git_draft get-commit-message --for-draft=active | head -n1 # TODO get message properly
 fi
 
 git show-ref | cut -d' ' -f2- | (grep -E 'refs/drafts/'||true) | sed 's%refs/drafts/%%' | while read draft ; do

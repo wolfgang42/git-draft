@@ -8,7 +8,7 @@ stash_get_draft_commit_message_raw() {
 }
 
 stash_get_draft_commit_message() {
-	stash_get_draft_commit_message_raw | git_apply_active_trailers | git interpret-trailers --no-divider --if-exists=replace --trim-empty --trailer 'Draft-ref:'
+	git_draft get-commit-message --for-draft=active --remove-trailer="Draft-ref"
 }
 
 # Index everything and get tree of it

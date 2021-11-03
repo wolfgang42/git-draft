@@ -1,0 +1,23 @@
++ test_init_git_fixture
++ set +x
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ /home/wolf/src/git-draft/git-draft create -m 'example draft'
+created new draft main-abcdef
++ /home/wolf/src/git-draft/git-draft get-commit-message --for-draft=main-abcdef
+example draft
+
+Draft-on: refs/heads/main
+
++ /home/wolf/src/git-draft/git-draft get-commit-message --new --with-active-trailers
+
+Draft-on: refs/heads/main
++ /home/wolf/src/git-draft/git-draft switch main-abcdef
+Already up to date!
++ /home/wolf/src/git-draft/git-draft get-commit-message --for-draft=active
+example draft
+
+Draft-ref: refs/drafts/main-abcdef
+Draft-on: refs/heads/main
+
++ finish
++ set +x

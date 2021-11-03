@@ -5,7 +5,7 @@
 #: - long: --message
 #:   short: -m
 #:   arg: msg
-#:   help: "Use the given <MSG> as the commit message. This will append to the draft's message if it already has one."
+#:   help: "Use the given <MSG> as the commit message."
 #: - long: --from-index
 #:   short: -i
 #:   help: "Create a draft containing a copy of the index. (This is the only index-aware command.)"
@@ -19,11 +19,11 @@
 current_head="$(git symbolic-ref HEAD)"
 
 create_get_draft_commit_message() {
-	(
-		if [[ -v args[--message] ]]; then
-			echo "${args[--message]}"
-		fi
-	) | git_apply_active_trailers
+	if [[ -v args[--message] ]]; then
+		git_draft get-commit-message --new --with-active-trailers --message="${args[--message]}"
+	else
+		git_draft get-commit-message --new --with-active-trailers
+	fi
 }
 
 if [[ -v args[--from-index] ]]; then
