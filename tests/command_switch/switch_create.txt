@@ -9,7 +9,7 @@ created new draft main-ghijkl
 On branch main
 nothing to commit, working tree clean
 + /home/wolf/src/git-draft/git-draft list
-  main-ghijkl draft on main 
+  [1mmain-ghijkl[0m draft on main 
 + /home/wolf/src/git-draft/git-draft show main-ghijkl
 commit a17b91d02a0a51a2db8eb945236087948798dec8
 Author: test <test@test>

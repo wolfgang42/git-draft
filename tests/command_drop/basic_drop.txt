@@ -9,8 +9,8 @@ created new draft main-ghijkl
 + /home/wolf/src/git-draft/git-draft switch main-abcdef
 Already up to date!
 + /home/wolf/src/git-draft/git-draft list
-* main-abcdef draft on main 
-  main-ghijkl draft on main 
+* [1mmain-abcdef[0m draft on main 
+  [1mmain-ghijkl[0m draft on main 
 + /home/wolf/src/git-draft/git-draft drop main-abcdef
 validation error in DRAFT-NAME:
 must be a stashed draft
@@ -19,6 +19,6 @@ drop failed
 + /home/wolf/src/git-draft/git-draft drop main-ghijkl
 Dropped refs/drafts/main-ghijkl (93c73f0ac2abd78ad8f24b9ec6d2439880f8c362)
 + /home/wolf/src/git-draft/git-draft list
-* main-abcdef draft on main 
+* [1mmain-abcdef[0m draft on main 
 + finish
 + set +x
