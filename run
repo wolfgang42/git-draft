@@ -13,6 +13,7 @@ fi
 	echo '#:'
 	echo '#: commands:'
 	for cmd in src/*_command.sh; do
+		echo '#: '
 		echo '#: -'
 		sed 's%^#:%#:  %' "$cmd"
 	done
