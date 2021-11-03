@@ -11,10 +11,7 @@
 #: examples:
 #: - git-draft switch main-episno
 
-if ( [[ -v args[draft-name] ]] && [[ -v args[--create] ]] ) || ( [[ ! -v args[draft-name] ]] && [[ ! -v args[--create] ]] ); then
-	echo 'Exactly one of draft-name or --create must be passed' >&2
-	exit 1
-fi
+args_require_one draft-name --create
 
 if ! active_is_empty; then
 	git_draft stash-active
