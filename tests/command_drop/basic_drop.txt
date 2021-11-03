@@ -12,7 +12,8 @@ Already up to date!
 * main-abcdef draft on main 
   main-ghijkl draft on main 
 + /home/wolf/src/git-draft/git-draft drop main-abcdef
-Cannot drop an active draft.
+validation error in DRAFT-NAME:
+must be a stashed draft
 + echo 'drop failed'
 drop failed
 + /home/wolf/src/git-draft/git-draft drop main-ghijkl

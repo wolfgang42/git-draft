@@ -3,5 +3,6 @@
 #: args:
 #: - name: draft-name
 #:   required: true
+#:   validate: draft
 
 git_draft get-commit-message "${args[draft-name]}" | git interpret-trailers --parse --no-divider

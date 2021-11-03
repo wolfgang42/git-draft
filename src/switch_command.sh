@@ -2,6 +2,7 @@
 #: help: Make a different draft into the active draft (stashing the currently active one if it exists)
 #: args:
 #: - name: draft-name
+#:   validate: draft
 #: flags:
 #: - long: --create
 #:   short: -c

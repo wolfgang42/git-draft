@@ -6,8 +6,9 @@ created new draft main-abcdef
 + set +e
 + /home/wolf/src/git-draft/git-draft switch -c main-abcdef
 Exactly one of draft-name or --create must be passed
-+ /home/wolf/src/git-draft/git-draft switch -c main-nonexistent
-Exactly one of draft-name or --create must be passed
++ /home/wolf/src/git-draft/git-draft switch main-nonexistent
+validation error in DRAFT-NAME:
+must be an existing draft
 + /home/wolf/src/git-draft/git-draft switch
 Exactly one of draft-name or --create must be passed
 + exit 0

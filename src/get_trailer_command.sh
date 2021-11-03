@@ -3,8 +3,10 @@
 #: args:
 #: - name: draft-name
 #:   required: true
+#:   validate: draft
 #: - name: trailer-name
 #:   required: true
+#:   validate: not_empty
 #: flags:
 #: - long: --default
 #:   arg: value

@@ -3,6 +3,7 @@
 #: args:
 #: - name: draft-name
 #:   required: true
+#:   validate: draft
 
 draft_name="${args[draft-name]}"
 

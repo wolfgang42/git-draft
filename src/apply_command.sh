@@ -3,6 +3,7 @@
 #: args:
 #: - name: draft-name
 #:   required: true
+#:   validate: draft_stashed
 #: flags:
 #: # Flags that come from `git apply`: (TODO bring more in, these are just the ones we need for internal use)
 #: - long: --check

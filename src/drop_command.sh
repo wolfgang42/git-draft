@@ -3,6 +3,7 @@
 #: args:
 #: - name: draft-name
 #:   required: true
+#:   validate: draft_stashed
 
 if draft_is_active "${args[draft-name]}"; then
 	echo "Cannot drop an active draft." 2>&1
