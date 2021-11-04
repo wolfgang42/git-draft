@@ -1,16 +1,16 @@
 + test_init_git_fixture
 + set +x
-+ /home/wolf/src/git-draft/git-draft get-commit-message --for-draft=active
++ git-draft get-commit-message --for-draft=active
 
 Draft-on: refs/heads/main
-+ /home/wolf/src/git-draft/git-draft message -m 'This is a test message'
-+ /home/wolf/src/git-draft/git-draft get-commit-message --for-draft=active
++ git-draft message -m 'This is a test message'
++ git-draft get-commit-message --for-draft=active
 This is a test message
 
 Draft-on: refs/heads/main
 + GIT_EDITOR=mock-editor
-+ /home/wolf/src/git-draft/git-draft message --edit
-+ /home/wolf/src/git-draft/git-draft get-commit-message --for-draft=active
++ git-draft message --edit
++ git-draft get-commit-message --for-draft=active
 Some edits here
 
 Draft-on: refs/heads/main

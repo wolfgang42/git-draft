@@ -13,7 +13,7 @@ Changes to be committed:
 	deleted:    b.txt
 	new file:   c.txt
 
-+ /home/wolf/src/git-draft/git-draft status
++ git-draft status
 On branch main
 draft on main
 

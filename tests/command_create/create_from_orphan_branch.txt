@@ -3,9 +3,9 @@
 + git switch --orphan newbranch
 Switched to a new branch 'newbranch'
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ /home/wolf/src/git-draft/git-draft create
++ git-draft create
 created new draft newbranch-abcdef
-+ /home/wolf/src/git-draft/git-draft show newbranch-abcdef
++ git-draft show newbranch-abcdef
 commit d7c27a801a1d20922715a5f897d6c36572ed1738
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000

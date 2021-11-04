@@ -3,16 +3,16 @@
 + echo foo
 + git add -A
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ /home/wolf/src/git-draft/git-draft create -id
++ git-draft create -id
 created new draft main-abcdef
-+ /home/wolf/src/git-draft/git-draft switch main-abcdef
-+ /home/wolf/src/git-draft/git-draft list
++ git-draft switch main-abcdef
++ git-draft list
 * [1mmain-abcdef[0m draft on main 
-+ /home/wolf/src/git-draft/git-draft commit -m 'make some changes'
++ git-draft commit -m 'make some changes'
 [main 122b9b7] make some changes
  1 file changed, 1 insertion(+), 1 deletion(-)
-+ /home/wolf/src/git-draft/git-draft list
-++ /home/wolf/src/git-draft/git-draft active-is-empty
++ git-draft list
+++ git-draft active-is-empty
 + echo 'Active is empty: y'
 Active is empty: y
 + finish

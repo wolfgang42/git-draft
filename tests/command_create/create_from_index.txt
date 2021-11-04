@@ -6,9 +6,9 @@
 + echo bak
 + git add b.txt d.txt
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ /home/wolf/src/git-draft/git-draft create --from-index
++ git-draft create --from-index
 created new draft main-abcdef
-+ /home/wolf/src/git-draft/git-draft show main-abcdef
++ git-draft show main-abcdef
 commit acc9ecfa624fbea7234dd3b95cf7852f41fdb2ae
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000

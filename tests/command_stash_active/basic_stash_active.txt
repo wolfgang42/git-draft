@@ -3,9 +3,9 @@
 + echo foo
 + echo hi
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ /home/wolf/src/git-draft/git-draft stash-active
++ git-draft stash-active
 created new draft main-abcdef
-+ /home/wolf/src/git-draft/git-draft show main-abcdef
++ git-draft show main-abcdef
 commit a17b91d02a0a51a2db8eb945236087948798dec8
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000

@@ -6,10 +6,8 @@
 
 set -eu -o pipefail
 
-shopt -s expand_aliases
-# shellcheck disable=SC2139
-# ^ we genuinely want this alias to expand at define time; that way we don't have to reevaluate the path
-alias git-draft="$(realpath "$(dirname "${BASH_SOURCE[0]}")/../git-draft")"
+# Put our git-draft at the front of the path
+PATH="$(realpath "$(dirname "${BASH_SOURCE[0]}")/../"):$PATH"
 
 test_init() {
 	# Fix these in place so commit hashes don't change

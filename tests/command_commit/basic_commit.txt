@@ -2,7 +2,7 @@
 + set +x
 + echo foo
 + echo hi
-+ /home/wolf/src/git-draft/git-draft commit -m 'make some changes'
++ git-draft commit -m 'make some changes'
 [main ba372a6] make some changes
  2 files changed, 2 insertions(+), 1 deletion(-)
  create mode 100644 example.txt

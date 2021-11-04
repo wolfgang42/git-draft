@@ -8,9 +8,9 @@ No commits yet
 
 nothing to commit (create/copy files and use "git add" to track)
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ /home/wolf/src/git-draft/git-draft create
++ git-draft create
 created new draft main-abcdef
-+ /home/wolf/src/git-draft/git-draft show main-abcdef
++ git-draft show main-abcdef
 commit 986e396792cfaad3b50e318418080cd85ec91aed
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000

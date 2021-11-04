@@ -3,14 +3,14 @@
 + echo foo
 + echo hi
 + GIT_DRAFT_TEST_RANDOM_6CHAR=ghijkl
-+ /home/wolf/src/git-draft/git-draft switch -c
++ git-draft switch -c
 created new draft main-ghijkl
 + git status
 On branch main
 nothing to commit, working tree clean
-+ /home/wolf/src/git-draft/git-draft list
++ git-draft list
   [1mmain-ghijkl[0m draft on main 
-+ /home/wolf/src/git-draft/git-draft show main-ghijkl
++ git-draft show main-ghijkl
 commit a17b91d02a0a51a2db8eb945236087948798dec8
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
@@ -31,7 +31,7 @@ index 0000000..45b983b
 +++ b/example.txt
 @@ -0,0 +1 @@
 +hi
-++ /home/wolf/src/git-draft/git-draft active-is-empty
+++ git-draft active-is-empty
 + echo 'Active is empty: y'
 Active is empty: y
 + finish

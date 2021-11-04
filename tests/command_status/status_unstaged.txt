@@ -16,7 +16,7 @@ Untracked files:
 	c.txt
 
 no changes added to commit (use "git add" and/or "git commit -a")
-+ /home/wolf/src/git-draft/git-draft status
++ git-draft status
 On branch main
 draft on main
 

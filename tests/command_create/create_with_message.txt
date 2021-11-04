@@ -1,9 +1,9 @@
 + test_init_git_fixture
 + set +x
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ /home/wolf/src/git-draft/git-draft create -m 'This is a message'
++ git-draft create -m 'This is a message'
 created new draft main-abcdef
-+ /home/wolf/src/git-draft/git-draft show main-abcdef
++ git-draft show main-abcdef
 commit 1ca4b6714d839f9ecc107e37e4903d75b494b2b4
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000

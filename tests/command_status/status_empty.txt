@@ -3,7 +3,7 @@
 + git status
 On branch main
 nothing to commit, working tree clean
-+ /home/wolf/src/git-draft/git-draft status
++ git-draft status
 On branch main
 empty draft on main
 
