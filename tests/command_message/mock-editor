@@ -1,0 +1,4 @@
+#!/bin/bash
+# Fake editor for testing commit message stuff
+
+echo 'Some edits here' > "$1"

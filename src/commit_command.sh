@@ -3,10 +3,16 @@
 #: help: Commit the active draft
 #:
 #: flags:
+## NOTE - message flags are shared between message, commit, and get-commit-message commands
 #: - long: --message
 #:   short: -m
 #:   arg: msg
 #:   help: "Use the given <MSG> as the commit message. This will discard the draft's message if it has one."
+#: - long: --edit
+#:   short: -e
+#:   help: "Open the commit message in an editor."
+#: - long: --no-edit
+#:   help: "Do not edit the message before committing."
 #:
 #: examples:
 #: - git-draft commit
@@ -14,17 +20,19 @@
 # TODO support amend drafts
 git add -A
 
-git_commit_args=()
-if [[ -v args[--message] ]]; then
-	git_commit_args+=(--message "${args[--message]}")
-fi
-# TODO support $(active_draft_editmsg_file)
-
 # Set an environment variable that can be seen by git hooks, editors, etc during `git commit`,
 # in case someone wants to know when a draft is being committed for some reason.
 export GIT_DRAFT_COMMITTING=1
 
-git commit "${git_commit_args[@]}"
+# Call message command directly:
+# this is normally a weird thing to do, since it bypasses all of the argument handling etc., but
+# 1. it's OK to do here because message_command uses a subset of commit's arguments and has been carefully
+#    designed to be OK with this situation,
+# 2. we do this because it's a little less awkward than copying over all the arguments, but if this proves
+#    problematic for some reason it should be changed to just do that instead.
+git_draft_message_command
+
+git commit --no-edit -F <(git_draft get-commit-message --for-draft=active --remove-draft-trailers)
 
 if ! git_worktree_clean; then
 	echo 'Assertion error: worktree is not clean after git-draft commit!' >&2
