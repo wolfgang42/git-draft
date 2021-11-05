@@ -9,8 +9,8 @@ created new draft main-ghijkl
 + git-draft switch main-abcdef
 Already up to date!
 + git-draft list
-* [1mmain-abcdef[0m draft on main 
-  [1mmain-ghijkl[0m draft on main 
+* [1mmain-abcdef[0m [draft on main] 
+  [1mmain-ghijkl[0m [draft on main] 
 + git-draft drop main-abcdef
 validation error in DRAFT-NAME:
 must be a stashed draft
@@ -19,6 +19,6 @@ drop failed
 + git-draft drop main-ghijkl
 Dropped refs/drafts/main-ghijkl (93c73f0ac2abd78ad8f24b9ec6d2439880f8c362)
 + git-draft list
-* [1mmain-abcdef[0m draft on main 
+* [1mmain-abcdef[0m [draft on main] 
 + finish
 + set +x

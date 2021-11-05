@@ -7,7 +7,7 @@
 created new draft main-abcdef
 + git-draft switch main-abcdef
 + git-draft list
-* [1mmain-abcdef[0m draft on main 
+* [1mmain-abcdef[0m [draft on main] 
 + git-draft commit -m 'make some changes'
 [main 122b9b7] make some changes
  1 file changed, 1 insertion(+), 1 deletion(-)

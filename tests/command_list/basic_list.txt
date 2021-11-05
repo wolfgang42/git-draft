@@ -4,17 +4,17 @@
 + git-draft create -m 'example draft'
 created new draft main-abcdef
 + git-draft list
-  [1mmain-abcdef[0m draft on main example draft
+  [1mmain-abcdef[0m [draft on main] example draft
 + echo x
 + git-draft list
-* [1mactive[0m draft on main 
-  [1mmain-abcdef[0m draft on main example draft
+* [1mactive[0m [draft on main] 
+  [1mmain-abcdef[0m [draft on main] example draft
 + GIT_DRAFT_TEST_RANDOM_6CHAR=ghijkl
 + git-draft switch main-abcdef
 created new draft main-ghijkl
 Already up to date!
 + git-draft list
-* [1mmain-abcdef[0m draft on main example draft
-  [1mmain-ghijkl[0m draft on main 
+* [1mmain-abcdef[0m [draft on main] example draft
+  [1mmain-ghijkl[0m [draft on main] 
 + finish
 + set +x
