@@ -5,7 +5,9 @@ random_6char() {
 	fi
 	# shellcheck disable=SC2018
 	# ^ we genuinely only want ASCII chars
-	tr -dc a-z </dev/urandom | head -c 6
+	# Use the C locale to prevent certain systems (MacOS in particular) from trying
+	# (and failing) to interpret the urandom output as UTF-8.
+	LC_ALL=C tr -dc a-z </dev/urandom | head -c 6
 }
 
 generate_draft_name() {
