@@ -1,0 +1,15 @@
++ test_init_git_fixture
++ set +x
++ git checkout --detach
+HEAD is now at 61225ad Add B
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ git-draft create
+created new draft 61225ad-abcdef
++ git-draft show 61225ad-abcdef
+commit c0cd94e8d8ca6ec74865eae7da0921ba1778aa97
+Author: test <test@test>
+Date:   Thu Jan 1 00:00:00 1970 +0000
+
+    Draft-on: 61225ad02527755d902897271916dc5a80d41754
++ finish
++ set +x

@@ -11,3 +11,6 @@ git-draft get-commit-message --new --with-active-trailers
 
 git-draft switch main-abcdef
 git-draft get-commit-message --for-draft=active
+
+git checkout --detach
+git-draft get-commit-message --for-draft=active
