@@ -16,8 +16,6 @@
 #: examples:
 #: - git-draft create
 
-current_head="$(git symbolic-ref HEAD)"
-
 create_get_draft_commit_message() {
 	if [[ -v args[--message] ]]; then
 		git_draft get-commit-message --new --with-active-trailers --message="${args[--message]}"
