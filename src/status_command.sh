@@ -20,7 +20,7 @@ else
 		# (there's a helpful table in git-status(1))
 		'??' | 'A ' | 'AM')
 			echo $'\t'"$(green + "$filename")";;
-		' M' | 'M ')
+		' M' | 'M ' | 'MM')
 			echo $'\t'"$(blue '*' "$filename")";;
 		' D' | 'D ')
 			echo $'\t'"$(red '-' "$filename")";;

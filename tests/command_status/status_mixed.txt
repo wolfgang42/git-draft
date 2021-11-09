@@ -1,0 +1,30 @@
++ test_init_git_fixture
++ set +x
++ echo change1
++ git add a.txt
++ echo change2
++ echo change1
++ git add new.txt
++ echo change2
++ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   a.txt
+	new file:   new.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   a.txt
+	modified:   new.txt
+
++ git-draft status
+On branch main
+draft on main
+
+Changed files:
+	[34m* a.txt[0m
+	[32m+ new.txt[0m
++ finish
++ set +x
