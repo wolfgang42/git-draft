@@ -1,0 +1,12 @@
++ test_init_git_fixture
++ set +x
++ git-draft message -m 'This is a commit message'
++ git-draft status
+On branch main
+draft on main
+
+	This is a commit message
+
+nothing to commit, working tree clean
++ finish
++ set +x
