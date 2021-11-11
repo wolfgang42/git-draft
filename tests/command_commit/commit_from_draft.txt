@@ -6,6 +6,7 @@
 + git-draft create -id
 created new draft main-abcdef
 + git-draft switch main-abcdef
+Already on 'main'
 + git-draft list
 * [1mmain-abcdef[0m [draft on main] 
 + git-draft commit -m 'make some changes'

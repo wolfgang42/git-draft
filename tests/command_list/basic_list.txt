@@ -12,6 +12,7 @@ created new draft main-abcdef
 + GIT_DRAFT_TEST_RANDOM_6CHAR=ghijkl
 + git-draft switch main-abcdef
 created new draft main-ghijkl
+Already on 'main'
 Already up to date!
 + git-draft list
 * [1mmain-abcdef[0m [draft on main] example draft

@@ -4,6 +4,7 @@
 + git-draft create -m 'Commit message here'
 created new draft main-abcdef
 + git-draft switch main-abcdef
+Already on 'main'
 Already up to date!
 + echo foo
 + echo hi

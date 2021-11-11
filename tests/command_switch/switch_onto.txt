@@ -1,0 +1,34 @@
++ test_init_git_fixture
++ set +x
++ echo foo
++ echo hi
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ git-draft create
+created new draft main-abcdef
++ GIT_DRAFT_TEST_RANDOM_6CHAR=ghijkl
++ git-draft switch main-abcdef '--onto=HEAD^'
+created new draft main-ghijkl
+Note: switching to 'HEAD^'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at a895768 Add A
+Already up to date!
++ git status
+Not currently on any branch.
+nothing to commit, working tree clean
++ finish
++ set +x

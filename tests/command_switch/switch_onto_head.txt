@@ -1,0 +1,25 @@
++ test_init_git_fixture
++ set +x
++ echo foo
++ echo hi
++ git add -A
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ git-draft create --from-index --delete-from-worktree
+created new draft main-abcdef
++ git switch -c branch2
+Switched to a new branch 'branch2'
++ echo bar
++ git commit -a -m branch2
+[branch2 ad1d3a4] branch2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
++ GIT_DRAFT_TEST_RANDOM_6CHAR=ghijkl
++ git-draft switch --onto-head main-abcdef
++ git status
+On branch branch2
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   a.txt
+	new file:   example.txt
+
++ finish
++ set +x
