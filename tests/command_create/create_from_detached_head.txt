@@ -6,10 +6,10 @@ HEAD is now at 61225ad Add B
 + git-draft create
 created new draft 61225ad-abcdef
 + git-draft show 61225ad-abcdef
-commit c0cd94e8d8ca6ec74865eae7da0921ba1778aa97
+commit 3dd221f5a730e7dae2073d1240872a306dae62be
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
-    Draft-on: 61225ad02527755d902897271916dc5a80d41754
+    Draft-on: detach 61225ad02527755d902897271916dc5a80d41754
 + finish
 + set +x

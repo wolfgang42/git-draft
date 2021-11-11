@@ -18,7 +18,7 @@ must be a stashed draft
 + echo 'drop failed'
 drop failed
 + git-draft drop main-ghijkl
-Dropped refs/drafts/main-ghijkl (93c73f0ac2abd78ad8f24b9ec6d2439880f8c362)
+Dropped refs/drafts/main-ghijkl (87855aad47c07c98af16270ef5ad539980f133fd)
 + git-draft list
 * [1mmain-abcdef[0m [draft on main] 
 + finish

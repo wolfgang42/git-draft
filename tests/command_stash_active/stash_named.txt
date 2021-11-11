@@ -11,13 +11,13 @@ Already up to date!
 + git-draft stash-active
 stashed draft refs/drafts/main-abcdef
 + git-draft show main-abcdef
-commit 4c4dae9cdd7cca460b90039cebf1148c164c027f
+commit 828c6249c3f87eb6f4ecf78c2a1ee40ab9e490a9
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
     Commit message here
     
-    Draft-on: refs/heads/main
+    Draft-on: branch main
 
 diff --git a/a.txt b/a.txt
 index f70f10e..257cc56 100644

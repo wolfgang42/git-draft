@@ -14,11 +14,13 @@ fi
 
 desc+=("draft")
 
-on_branch="$(git_draft get-trailer "$draft_name" "Draft-on")"
+draft_on="$(git_draft get-trailer "$draft_name" "Draft-on")"
+draft_on_type="${draft_on%% *}" # Remove everything from first space to end of string
+draft_on_value="${draft_on#* }" # Remove everything from start of string to first space
 
-desc+=("on" "$(git rev-parse --abbrev-ref "$on_branch")")
+desc+=("on $draft_on_value")
 
-if ! draft_is_active "$draft_name"; then
+if [[ "$draft_on_type" == "branch" ]] && ! draft_is_active "$draft_name"; then
 	draft_ref="$(ref_from_name "$draft_name")"
 	behind="$(git rev-list --count "$draft_ref..$on_branch")"
 	ahead="$(git rev-list --count "$on_branch..$draft_ref^")"

@@ -2,17 +2,17 @@
 + set +x
 + git-draft get-commit-message --for-draft=active
 
-Draft-on: refs/heads/main
+Draft-on: branch main
 + git-draft message -m 'This is a test message'
 + git-draft get-commit-message --for-draft=active
 This is a test message
 
-Draft-on: refs/heads/main
+Draft-on: branch main
 + GIT_EDITOR=mock-editor
 + git-draft message --edit
 + git-draft get-commit-message --for-draft=active
 Some edits here
 
-Draft-on: refs/heads/main
+Draft-on: branch main
 + finish
 + set +x

@@ -122,8 +122,7 @@ git_editor() {
 ) | (
 	# Add trailers for active draft
 	if [[ -v args[--with-active-trailers] ]] || ( [[ -v args[--for-draft] ]] && draft_is_active "${args[--for-draft]}" ); then
-		current_head="$(git symbolic-ref -q HEAD || git rev-parse HEAD)"
-		git interpret-trailers --no-divider --if-exists replace --trailer "Draft-on:$current_head"
+		git interpret-trailers --no-divider --if-exists replace --trailer "Draft-on:$(git_serialize_head)"
 	else
 		cat
 	fi

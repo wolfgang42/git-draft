@@ -4,12 +4,12 @@
 + git-draft create -m 'This is a message'
 created new draft main-abcdef
 + git-draft show main-abcdef
-commit 1ca4b6714d839f9ecc107e37e4903d75b494b2b4
+commit 94d7920d37d948221f4780fa0a0dfab7f96eacef
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
     This is a message
     
-    Draft-on: refs/heads/main
+    Draft-on: branch main
 + finish
 + set +x

@@ -11,11 +11,11 @@ nothing to commit, working tree clean
 + git-draft list
   [1mmain-ghijkl[0m [draft on main] 
 + git-draft show main-ghijkl
-commit a17b91d02a0a51a2db8eb945236087948798dec8
+commit efbed348fd1eef11e9627fd66f8175ae8453ae83
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
-    Draft-on: refs/heads/main
+    Draft-on: branch main
 
 diff --git a/a.txt b/a.txt
 index f70f10e..257cc56 100644

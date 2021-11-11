@@ -38,8 +38,7 @@ elif [[ -v args[--create] ]]; then
 elif [[ -v args[--onto-detached-commit] ]]; then
 	git checkout "$(ref_from_name "${args[draft-name]}")^" # Checkout parent
 else # --onto-branch, or no argument
-	# `sed` avoids detaching if checking out a branch, see https://stackoverflow.com/q/69935511
-	git checkout "$(git_draft get-trailer "${args[draft-name]}" Draft-on | sed 's%^refs/heads/%%')"
+	git_checkout_serialized_head "$(git_draft get-trailer "${args[draft-name]}" Draft-on)"
 fi
 
 if [[ ! -v args[--create] ]]; then # Don't activate anything if we're creating a new draft

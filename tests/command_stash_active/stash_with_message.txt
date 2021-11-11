@@ -7,13 +7,13 @@
 + git-draft stash-active
 created new draft main-abcdef
 + git-draft show main-abcdef
-commit 685256685011c772fd935744485c74834bccc1dc
+commit 3a3b18cf01626e82c27dfaea5e5b66ef6d593013
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
     This is a message
     
-    Draft-on: refs/heads/main
+    Draft-on: branch main
 
 diff --git a/a.txt b/a.txt
 index f70f10e..257cc56 100644

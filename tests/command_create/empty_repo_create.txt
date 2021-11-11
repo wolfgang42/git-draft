@@ -11,10 +11,10 @@ nothing to commit (create/copy files and use "git add" to track)
 + git-draft create
 created new draft main-abcdef
 + git-draft show main-abcdef
-commit 986e396792cfaad3b50e318418080cd85ec91aed
+commit b9f4cf76b7e444bdd1d7c20d8939c3b9db8ca755
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
-    Draft-on: refs/heads/main
+    Draft-on: orphan main
 + finish
 + set +x
