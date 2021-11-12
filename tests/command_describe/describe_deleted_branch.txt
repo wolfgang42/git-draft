@@ -1,0 +1,21 @@
++ test_init_git_fixture
++ set +x
++ git switch -c branch2
+Switched to a new branch 'branch2'
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ git-draft create
+created new draft branch2-abcdef
++ git switch main
+Switched to branch 'main'
++ git branch -d branch2
+Deleted branch branch2 (was 61225ad).
++ git draft show branch2-abcdef
+commit de448f309ac3e1b298e1ec1340f3e247f5bb1a17
+Author: test <test@test>
+Date:   Thu Jan 1 00:00:00 1970 +0000
+
+    Draft-on: branch branch2
++ git-draft describe branch2-abcdef
+draft on branch2 (deleted branch)
++ finish
++ set +x

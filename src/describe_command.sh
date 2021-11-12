@@ -21,15 +21,19 @@ draft_on_value="${draft_on#* }" # Remove everything from start of string to firs
 desc+=("on $draft_on_value")
 
 if [[ "$draft_on_type" == "branch" ]] && ! draft_is_active "$draft_name"; then
-	draft_ref="$(ref_from_name "$draft_name")"
-	behind="$(git rev-list --count "$draft_ref..$on_branch")"
-	ahead="$(git rev-list --count "$on_branch..$draft_ref^")"
-	if [[ "$ahead" == "0" && "$behind" != "0" ]]; then
-		desc+=("(-$behind)")
-	elif [[ "$ahead" != "0" && "$behind" == "0" ]]; then
-		desc+=("(+$ahead)")
-	elif [[ "$ahead" != "0" && "$behind" != "0" ]]; then
-		desc+=("(-$behind/+$ahead)")
+	if git rev-parse --quiet --verify "$draft_on_value" > /dev/null; then
+		draft_ref="$(ref_from_name "$draft_name")"
+		behind="$(git rev-list --count "$draft_ref..$draft_on_value")"
+		ahead="$(git rev-list --count "$draft_on_value..$draft_ref^")"
+		if [[ "$ahead" == "0" && "$behind" != "0" ]]; then
+			desc+=("(-$behind)")
+		elif [[ "$ahead" != "0" && "$behind" == "0" ]]; then
+			desc+=("(+$ahead)")
+		elif [[ "$ahead" != "0" && "$behind" != "0" ]]; then
+			desc+=("(-$behind/+$ahead)")
+		fi
+	else
+		desc+=("(deleted branch)")
 	fi
 fi
 
