@@ -1,3 +1,5 @@
+<img src="git-draft-logo.png" width="128" height="128" alt="" align="right"/>
+
 # git-draft
 `git-draft` is a new way to manage changes to your `git` worktree before committing.
 It replaces the git index/staging area with the concept of “draft commits”. Its philosophy is best summarized with the phrase:
