@@ -20,11 +20,13 @@ for test in tests/*.sh tests/**/*.sh; do
 		rm "${test/.sh/.out}"
 	else
 		diff --unified "${test/.sh/.txt}" "${test/.sh/.out}" || true
-		read -r -N1 -p "Accept changes, or Fail test? " accept
+		read -r -N1 -p "[a]ccept changes, or [f]ail test? " accept
 		echo
 		if [[ "$accept" == 'a' ]]; then
 			cp "${test/.sh/.out}" "${test/.sh/.txt}"
+			echo "Updated expected output for $test"
 		else
+			echo "Rejected changes to output for $test"
 			exit 1
 		fi
 	fi
