@@ -35,7 +35,7 @@ git_checkout_serialized_head() {
 		# come back as a new root in their repo. (The unqualified `git checkout`
 		# in the type==branch case above will produce an error for us in this
 		# situation.)
-		if git rev-parse --quiet --verify HEAD > /dev/null; then
+		if git rev-parse --quiet --verify "$value" > /dev/null; then
 			# Not an orphan any more, check out normally
 			git checkout "$value"
 		else

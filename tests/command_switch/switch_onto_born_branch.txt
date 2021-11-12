@@ -1,0 +1,27 @@
++ test_init_git
++ git init --quiet
++ git switch --quiet -c main
++ echo foo
++ git add -A
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ git-draft create --from-index --delete-from-worktree
+created new draft main-abcdef
++ echo bar
++ git add -A
++ git commit -m 'First commit to main'
+[main (root-commit) ee9fa61] First commit to main
+ 1 file changed, 1 insertion(+)
+ create mode 100644 b.txt
++ git switch --orphan branch2
+Switched to a new branch 'branch2'
++ GIT_DRAFT_TEST_RANDOM_6CHAR=ghijkl
++ git-draft switch --onto-ref main-abcdef
+Switched to branch 'main'
++ git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   a.txt
+
++ finish
++ set +x
