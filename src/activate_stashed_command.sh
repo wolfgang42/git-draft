@@ -1,4 +1,5 @@
 #: name: activate-stashed
+#: private: true
 #: help: "Makes a stashed draft into the active draft (the current active draft must be an empty draft)"
 #: args:
 #: - name: draft-name

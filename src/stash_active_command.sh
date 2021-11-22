@@ -1,4 +1,5 @@
 #: name: stash-active
+#: private: true
 #: help: "Makes the current active draft into a staged draft (leaving behind an empty active draft)"
 
 stash_get_draft_commit_message_raw() {

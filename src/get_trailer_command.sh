@@ -1,4 +1,5 @@
 #: name: get-trailer
+#: private: true
 #: help: Get a trailer for a draft by name
 #: args:
 #: - name: draft-name

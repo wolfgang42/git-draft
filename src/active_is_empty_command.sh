@@ -1,4 +1,5 @@
 #: name: active-is-empty
+#: private: true
 #: help: "Returns 'y' if the active commit is an empty commit, 'n' otherwise"
 
 if active_draft_has_name; then

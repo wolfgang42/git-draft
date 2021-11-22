@@ -1,4 +1,5 @@
 #: name: describe
+#: private: true
 #: help: Print a description of the draft
 #: args:
 #: - name: draft-name

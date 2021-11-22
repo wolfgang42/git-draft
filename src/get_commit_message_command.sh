@@ -1,4 +1,5 @@
 #: name: get-commit-message
+#: private: true
 #: help: Do various things with commit messages.
 #: flags:
 #: # Original message
