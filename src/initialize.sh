@@ -1,9 +1,3 @@
-#: name: git-draft
-#: help: Stash, don't stage!
-#: version: 0.0.0
-#: 
-#: dependencies: [git]
-
 ## Code here runs inside the initialize() function
 ## Use it for anything that you need to run before any other function, like
 ## setting environment vairables:
