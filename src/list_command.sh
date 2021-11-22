@@ -1,6 +1,8 @@
 #: name: list
 #: help: Print a list of drafts
 
+export GIT_DRAFT_CACHE_ACTIVE_REF="$(active_draft_ref)"
+
 if ! active_is_empty; then
 	echo -n '* '
 	if active_draft_has_name; then

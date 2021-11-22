@@ -1,4 +1,5 @@
 active_draft_ref() {
+	[[ -v GIT_DRAFT_CACHE_ACTIVE_REF ]] && echo "$GIT_DRAFT_CACHE_ACTIVE_REF" && return
 	git_draft get-trailer active "Draft-ref" --default 'missing' # TODO consider memoizing
 }
 
