@@ -1,0 +1,31 @@
+name: git-draft
+help: Stash, don't stage!
+version: 0.0.0
+
+dependencies: [git]
+
+commands:
+- group: Status
+  import: src/status_command.yml
+- import: src/list_command.yml
+- import: src/show_command.yml
+
+- group: Editing
+  import: src/message_command.yml
+- import: src/commit_command.yml
+
+- group: Management
+  import: src/create_command.yml
+- import: src/drop_command.yml
+- import: src/switch_command.yml
+
+- group: Advanced
+  import: src/apply_command.yml
+
+- group: Plumbing
+  import: src/stash_active_command.yml
+- import: src/activate_stashed_command.yml
+- import: src/active_is_empty_command.yml
+- import: src/describe_command.yml
+- import: src/get_commit_message_command.yml
+- import: src/get_trailer_command.yml
