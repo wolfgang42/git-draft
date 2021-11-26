@@ -18,6 +18,14 @@ draft_ref="$(ref_from_name "${args[draft-name]}")"
 # Update the working directory
 git cherry-pick --no-commit --allow-empty "$draft_ref"
 # Update the active draft commit message
-git_draft get-commit-message --for-draft="$draft_ref" --add-trailer="Draft-ref:$draft_ref" > "$(active_draft_editmsg_file)"
+git_draft get-commit-message --for-draft="$draft_ref" > "$(active_draft_editmsg_file)"
+# Update the active draft notes
+( # TODO this is a hack for compatibility and should be removed
+	if [[ -v GIT_DRAFT_UNSTASH_IGNORE_NOTES ]]; then
+		echo
+	else
+		git_draft get-trailers "$draft_ref"
+	fi
+) | git interpret-trailers --no-divider --if-exists replace --trailer "Draft-ref:$draft_ref" > "$(active_draft_notes_file)"
 # Remove the draft commit, so it can't accidentally be used
 git update-ref -d "$draft_ref"

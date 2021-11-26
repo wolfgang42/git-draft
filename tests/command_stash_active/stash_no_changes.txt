@@ -4,10 +4,11 @@
 + git-draft stash-active
 created new draft main-abcdef
 + git-draft show main-abcdef
-commit 87855aad47c07c98af16270ef5ad539980f133fd
+commit 879635a8f5f1198b8ce503e6f9cf0962c7e4fe7d
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
+Notes (drafts-info):
     Draft-on: branch main
 + git status
 On branch main

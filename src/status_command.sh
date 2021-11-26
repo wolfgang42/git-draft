@@ -9,7 +9,7 @@ git status | head -n1
 git_draft describe active
 echo
 
-message="$(git_draft get-commit-message --for-draft=active --remove-draft-trailers)"
+message="$(git_draft get-commit-message --for-draft=active)"
 if [[ -n "$message" ]]; then
 	echo "$message" | awk '$0="\t"$0'
 	echo

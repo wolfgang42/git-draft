@@ -7,4 +7,4 @@
 
 # TODO support active draft
 
-git show refs/drafts/${args[draft-name]}
+git show --notes=drafts-info refs/drafts/${args[draft-name]}

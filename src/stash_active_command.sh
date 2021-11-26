@@ -2,14 +2,8 @@
 #: private: true
 #: help: "Makes the current active draft into a staged draft (leaving behind an empty active draft)"
 
-stash_get_draft_commit_message_raw() {
-	if [[ -e "$(active_draft_editmsg_file)" ]]; then
-		cat "$(active_draft_editmsg_file)"
-	fi
-}
-
 stash_get_draft_commit_message() {
-	git_draft get-commit-message --for-draft=active --remove-trailer="Draft-ref"
+	git_draft get-commit-message --for-draft=active
 }
 
 # Index everything and get tree of it
@@ -29,6 +23,9 @@ else # No commits yet (orphan branch)
 	draft_commit="$(git commit-tree "$index_tree" -F <(stash_get_draft_commit_message) </dev/null)"
 fi
 
+# Annotate commit
+git notes --ref=drafts-info add -F <(git_draft get-trailers active | git interpret-trailers --no-divider --if-exists=replace --trim-empty --trailer "Draft-ref:") "$draft_commit"
+
 # Update refs as appropriate
 if active_draft_has_name; then
 	draft_ref="$(active_draft_ref)"
@@ -43,7 +40,12 @@ fi
 if [[ "$had_changes" == 1 ]]; then
 	# Clean worktree of changes now that they're in the draft commit
 	git show --patch "$draft_commit" | git apply --index --reverse
-	[[ -e "$(active_draft_editmsg_file)" ]] && rm "$(active_draft_editmsg_file)"
+	if [[ -e "$(active_draft_editmsg_file)" ]]; then
+		rm "$(active_draft_editmsg_file)"
+	fi
+	if [[ -e "$(active_draft_notes_file)" ]]; then
+		rm "$(active_draft_notes_file)"
+	fi
 fi
 
 if ! active_is_empty; then

@@ -6,10 +6,11 @@ Switched to a new branch 'newbranch'
 + git-draft create
 created new draft newbranch-abcdef
 + git-draft show newbranch-abcdef
-commit 42aa7f368774fda6945f7c786a73ad2ff30843d2
+commit d7a05c4be36c523de754e00613b05689a875bdf7
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
+Notes (drafts-info):
     Draft-on: orphan newbranch
 + finish
 + set +x

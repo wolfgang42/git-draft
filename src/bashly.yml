@@ -30,4 +30,5 @@ commands:
 - import: src/active_is_empty_command.yml
 - import: src/describe_command.yml
 - import: src/get_commit_message_command.yml
+- import: src/get_trailers_command.yml
 - import: src/get_trailer_command.yml

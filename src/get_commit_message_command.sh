@@ -16,7 +16,7 @@
 #: - long: --message
 #:   short: -m
 #:   arg: msg
-#:   help: "Use the given <MSG> as the commit message. This will replace any existing message (but keeps trailers)."
+#:   help: "Use the given <MSG> as the commit message. This will replace any existing message."
 #: # Editing
 #: - long: --edit
 #:   short: -e
@@ -25,22 +25,8 @@
 #:   help: "Do not open the commit message in an editor."
 #: - long: --auto-edit
 #:   help: "Automatically decide whether to open an editor based on whether -m etc. were passed. Can be overridden by --edit/--no-edit."
-#: # Trailers
-#: - long: --with-active-trailers
-#:   help: Apply trailers as though this is the active draft
-#: - long: --add-trailer
-#:   arg: trailer
-#:   help: Add a trailer with the given name and value
-#: - long: --remove-trailer
-#:   arg: trailer-name
-#:   help: Remove the trailer with the given name
-#: - long: --remove-draft-trailers
-#:   help: Remove all git-draft trailers
-#: - long: --parse-trailers
-#:   help: Output trailers in convenient format
 
 args_require_one --from-stdin --for-draft --new
-args_mutually_exclusive --with-active-trailers --for-draft # Can't apply active trailers to other drafts
 args_mutually_exclusive --clear --message
 args_mutually_exclusive --edit --no-edit
 
@@ -104,6 +90,8 @@ git_editor() {
 	fi
 }
 
+set +o pipefail # TODO this prevents cat crashing out with SIGPIPE for reasons I haven't investigated thoroughly
+
 # Main pipeline - take a message and pass it through all the transforms it needs
 (
 	# Read original message
@@ -121,40 +109,9 @@ git_editor() {
 		fi
 	fi
 ) | (
-	# Add trailers for active draft
-	if [[ -v args[--with-active-trailers] ]] || ( [[ -v args[--for-draft] ]] && draft_is_active "${args[--for-draft]}" ); then
-		git interpret-trailers --no-divider --if-exists replace --trailer "Draft-on:$(git_serialize_head)"
-	else
-		cat
-	fi
-) | (
 	# Replace message if requested
 	if [[ -v args[--message] ]]; then
 		echo "${args[--message]}"
-		echo
-		git interpret-trailers --only-trailers --only-input
-	else
-		cat
-	fi
-) | (
-	# Add trailer if requested
-	if [[ -v args[--add-trailer] ]]; then
-		git interpret-trailers --no-divider --if-exists replace --trailer "${args[--add-trailer]}"
-	else
-		cat
-	fi
-) | (
-	# Remove trailer if requested
-	if [[ -v args[--remove-trailer] ]]; then
-		git interpret-trailers --no-divider --if-exists=replace --trim-empty --trailer "${args[--remove-trailer]}:"
-	else
-		cat
-	fi
-) | (
-	# Remove git-draft trailers if requested
-	if [[ -v args[--remove-draft-trailers] ]]; then
-		git interpret-trailers --no-divider --if-exists=replace --trim-empty --trailer "Draft-on:" |\
-		git interpret-trailers --no-divider --if-exists=replace --trim-empty --trailer "Draft-ref:"
 	else
 		cat
 	fi
@@ -167,13 +124,6 @@ git_editor() {
 		git_editor "$tmpfile" </dev/tty >/dev/tty
 		cat "$tmpfile"
 		rm "$tmpfile"
-	else
-		cat
-	fi
-) | (
-	# Parse trailers if requested
-	if [[ -v args[--parse-trailers] ]]; then
-		git interpret-trailers --parse --no-divider
 	else
 		cat
 	fi

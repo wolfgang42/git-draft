@@ -3,6 +3,8 @@
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
 + git-draft create
 created new draft main-abcdef
++ export 'GIT_AUTHOR_DATE=1/2/1970 0:00 +0000'
++ GIT_AUTHOR_DATE='1/2/1970 0:00 +0000'
 + GIT_DRAFT_TEST_RANDOM_6CHAR=ghijkl
 + git-draft create
 created new draft main-ghijkl
@@ -18,7 +20,7 @@ must be a stashed draft
 + echo 'drop failed'
 drop failed
 + git-draft drop main-ghijkl
-Dropped refs/drafts/main-ghijkl (87855aad47c07c98af16270ef5ad539980f133fd)
+Dropped refs/drafts/main-ghijkl (d018b2526ef7a78f307443dbae68e2f25662ce73)
 + git-draft list
 * [1mmain-abcdef[0m [draft on main] 
 + finish

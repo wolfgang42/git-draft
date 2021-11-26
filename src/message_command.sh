@@ -7,7 +7,7 @@
 #: - long: --message
 #:   short: -m
 #:   arg: msg
-#:   help: "Use the given <MSG> as the commit message. This will replace any existing message (but keeps trailers)."
+#:   help: "Use the given <MSG> as the commit message. This will replace any existing message."
 #: # Editing
 #: - long: --edit
 #:   short: -e

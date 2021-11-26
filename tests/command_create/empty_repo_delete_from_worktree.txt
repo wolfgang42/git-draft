@@ -14,10 +14,11 @@ nothing to commit (create/copy files and use "git add" to track)
 + git-draft create --from-index --delete-from-worktree
 created new draft main-abcdef
 + git-draft show main-abcdef
-commit 13cce510d41a617bc9658493ad53874a7d9d5ef0
+commit 5cde3b78f8cf238973d6a18e5e98232c7592c6db
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
+Notes (drafts-info):
     Draft-on: orphan main
 
 diff --git a/b.txt b/b.txt

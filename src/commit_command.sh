@@ -32,7 +32,7 @@ export GIT_DRAFT_COMMITTING=1
 #    problematic for some reason it should be changed to just do that instead.
 git_draft_message_command
 
-git commit --no-edit -F <(git_draft get-commit-message --for-draft=active --remove-draft-trailers)
+git commit --no-edit -F <(git_draft get-commit-message --for-draft=active)
 
 if ! git_worktree_clean; then
 	echo 'Assertion error: worktree is not clean after git-draft commit!' >&2
@@ -43,6 +43,10 @@ fi
 if [[ -e "$(active_draft_editmsg_file)" ]]; then
 	# We've successfully made the commit, so the draft's commit message can be discarded
 	rm "$(active_draft_editmsg_file)"
+fi
+if [[ -e "$(active_draft_notes_file)" ]]; then
+	# We've successfully made the commit, so the draft's annotations can be discarded
+	rm "$(active_draft_notes_file)"
 fi
 
 if ! active_is_empty; then

@@ -9,10 +9,11 @@
 + git-draft create --from-index --delete-from-worktree
 created new draft main-abcdef
 + git-draft show main-abcdef
-commit 6b7c6995b97dbc2f90effbd29a90fa395565a492
+commit 6170f87971db641ad62c9df4128a92c88967dafe
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
+Notes (drafts-info):
     Draft-on: branch main
 
 diff --git a/b.txt b/b.txt

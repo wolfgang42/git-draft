@@ -62,7 +62,8 @@ If you start with a clear working directory, `git draft status` will tell you th
 
 Make some changes and run `git draft status` again. You will see the changed files. Notice that staged and unstaged files are displayed the same way, because `git-draft` does not care about this distinction.
 
-Run `git draft message` and write a message explaining the changes you made. (The editor will have a `Draft-on` trailer at the bottom. This is a bit of plumbing sticking out and can be ignored.) Run `git draft status` again and notice that it now has the message you just wrote.
+Run `git draft message` and write a message explaining the changes you made.
+Run `git draft status` again and notice that it now has the message you just wrote.
 
 When you are ready to commit the changes you’ve drafted, run `git draft commit`. (You can also run `git draft commit --no-edit` if you don’t need to change the commit message again.) You will now have a new commit, and `git draft status` will once again report that your active draft is empty.
 
@@ -131,11 +132,11 @@ The active draft is actually an implicit entity, with no reified representation:
 * its tree is the working directory
 * its parent is HEAD
 * its commit message is stored in `.git/GITDASH_DRAFT_COMMIT_EDITMSG`
-* its name is stored as a [trailer](https://git-scm.com/docs/git-interpret-trailers) called `Draft-ref` on the message
+* its name is stored as a [trailer](https://git-scm.com/docs/git-interpret-trailers) called `Draft-ref` in `.git/GITDRAFT_NOTES`
 
 An "empty active draft" is simply what you get when
 * the working tree has no changes, and
-* `.git/GITDASH_DRAFT_COMMIT_EDITMSG` does not exist or is zero bytes long
+* `.git/GITDASH_DRAFT_COMMIT_EDITMSG` and `.git/GITDRAFT_NOTES` do not exist or are zero bytes long
 
 The plumbing commands `stash-active` and `activate-stashed` convert between the active and staged forms.
 They check that the active draft is empty before making changes to ensure that a bug doesn't cause two drafts to collide.
@@ -145,7 +146,8 @@ Stashed drafts are currently stored as commits under `refs/drafts/`.
 Their tree/parent/message are stored in this commit, and when the draft is edited the ref is changed to a new commit accordingly.
 (As a result, the note in the Concepts section that "drafts do not have committer/author dates or a hash" is not strictly accurate for stashed drafts,
 but that should be considered an implementation detail and not relied on.)
-The HEAD at the time they were stashed is also stored, as a trailer called `Draft-on`, and is used by default to check out the same
+Some metadata about the draft is stored as a [note](https://git-scm.com/docs/git-notes) on that commit:
+in particular, the HEAD at the time they were stashed is stored as `Draft-on`, and is used by default to check out the same
 branch when switching back to the stashed draft. (This can be changed with the various `--onto` options to `git draft switch`.)
 
 Despite the name, stashed drafts do not use `git stash`, since the structure that produces is somewhat unsuitable.
@@ -160,7 +162,6 @@ For the moment, the parent commit of a draft must be an actual commit, not a dra
   so that more conventional tools can be used at the same time. (For example, you could interactively add things to the
   index with `git gui` and then stash only those changes into a draft, leaving the unstaged changes in the active draft.)
   `git draft create --from-index` is a rudimentary version of this.
-* Various information about drafts is stored as commit message trailers. This causes clutter when editing messages.
 * It probably doesn't interact well with worktrees right now.
   (It certainly doesn't have a concept of multiple active drafts. I *think* that the current implementation should largely work,
   but I have not tried it yet.)

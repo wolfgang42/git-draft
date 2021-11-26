@@ -1,18 +1,12 @@
 + test_init_git_fixture
 + set +x
 + git-draft get-commit-message --for-draft=active
-
-Draft-on: branch main
 + git-draft message -m 'This is a test message'
 + git-draft get-commit-message --for-draft=active
 This is a test message
-
-Draft-on: branch main
 + GIT_EDITOR=mock-editor
 + git-draft message --edit
 + git-draft get-commit-message --for-draft=active
 Some edits here
-
-Draft-on: branch main
 + finish
 + set +x

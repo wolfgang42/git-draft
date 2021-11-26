@@ -18,7 +18,7 @@ if [[ -v args[--default] ]]; then
 	export search_default="${args[--default]}"
 fi
 
-git_draft get-commit-message --for-draft="${args[draft-name]}" --parse-trailers | search="${args[trailer-name]}" awk '
+git_draft get-trailers "${args[draft-name]}" | search="${args[trailer-name]}" awk '
 	BEGIN {
 		seen = 0
 		search = ENVIRON["search"] ": "

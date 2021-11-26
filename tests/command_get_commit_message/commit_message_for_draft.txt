@@ -6,27 +6,16 @@ created new draft main-abcdef
 + git-draft get-commit-message --for-draft=main-abcdef
 example draft
 
-Draft-on: branch main
-
-+ git-draft get-commit-message --new --with-active-trailers
-
-Draft-on: branch main
 + git-draft switch main-abcdef
 Already on 'main'
 Already up to date!
 + git-draft get-commit-message --for-draft=active
 example draft
 
-Draft-ref: refs/drafts/main-abcdef
-Draft-on: branch main
-
 + git checkout --detach
 HEAD is now at 61225ad Add B
 + git-draft get-commit-message --for-draft=active
 example draft
-
-Draft-ref: refs/drafts/main-abcdef
-Draft-on: detach 61225ad02527755d902897271916dc5a80d41754
 
 + finish
 + set +x

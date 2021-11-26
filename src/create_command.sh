@@ -18,9 +18,9 @@
 
 create_get_draft_commit_message() {
 	if [[ -v args[--message] ]]; then
-		git_draft get-commit-message --new --with-active-trailers --message="${args[--message]}"
+		git_draft get-commit-message --new --message="${args[--message]}"
 	else
-		git_draft get-commit-message --new --with-active-trailers
+		git_draft get-commit-message --new
 	fi
 }
 
@@ -38,6 +38,9 @@ if git_branch_has_commits; then
 else # No commits yet (orphan branch)
 	draft_commit="$(git commit-tree "$index_tree" -F <(create_get_draft_commit_message) </dev/null)"
 fi
+
+# Annotate commit
+git notes --ref=drafts-info add -m "Draft-on: $(git_serialize_head)" "$draft_commit"
 
 draft_name="$(generate_draft_name)"
 

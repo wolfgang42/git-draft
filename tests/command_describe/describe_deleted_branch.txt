@@ -10,10 +10,11 @@ Switched to branch 'main'
 + git branch -d branch2
 Deleted branch branch2 (was 61225ad).
 + git draft show branch2-abcdef
-commit de448f309ac3e1b298e1ec1340f3e247f5bb1a17
+commit 879635a8f5f1198b8ce503e6f9cf0962c7e4fe7d
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
+Notes (drafts-info):
     Draft-on: branch branch2
 + git-draft describe branch2-abcdef
 draft on branch2 (deleted branch)
