@@ -28,7 +28,7 @@
 
 args_require_one --from-stdin --for-draft --new
 args_mutually_exclusive --clear --message
-args_mutually_exclusive --edit --no-edit
+args_mutually_exclusive --edit --no-edit # NOTE --auto-edit is *not* mutually exclusive with these, and will be overridden by them
 
 should_edit=false
 if [[ -v args[--edit] ]]; then
