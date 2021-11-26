@@ -112,7 +112,11 @@ git_editor() {
 	if [[ "$should_edit" == true ]]; then
 		tmpfile="$(git_dir)/GITDRAFT_TEMP_EDITMSG"
 		cat >"$tmpfile"
-		git_editor "$tmpfile" </dev/tty >/dev/tty
+		if tty -s; then # TODO workaround for CI where we have no pty, there's probably a better way to do this
+			git_editor "$tmpfile" </dev/tty >/dev/tty
+		else
+			git_editor "$tmpfile" </dev/null >/dev/null
+		fi
 		cat "$tmpfile"
 		rm "$tmpfile"
 	else
