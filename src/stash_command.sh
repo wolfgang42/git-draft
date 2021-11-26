@@ -1,6 +1,5 @@
-#: name: stash-active
-#: private: true
-#: help: "Makes the current active draft into a staged draft (leaving behind an empty active draft)"
+#: name: stash
+#: help: "Makes the current active draft into a stashed draft (leaving behind an empty active draft)"
 
 stash_get_draft_commit_message() {
 	git_draft get-commit-message --for-draft=active
@@ -49,7 +48,7 @@ if [[ "$had_changes" == 1 ]]; then
 fi
 
 if ! active_is_empty; then
-	echo 'Assertion error: active draft is not empty after git-draft stash-active!' >&2
+	echo 'Assertion error: active draft is not empty after git-draft stash!' >&2
 	echo 'This is a bug; please report it (with steps to reproduce if possible).' >&2
 	exit 2
 fi

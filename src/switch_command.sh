@@ -25,7 +25,7 @@ args_require_one draft-name --create
 args_mutually_exclusive --onto --onto-head --onto-branch --onto-detached-commit
 
 if ! active_is_empty; then
-	git_draft stash-active
+	git_draft stash
 fi
 
 if [[ -v args[--onto] ]]; then

@@ -10,6 +10,6 @@ git-draft switch main-abcdef
 echo 'foo' > a.txt
 echo 'hi' > example.txt
 
-git-draft stash-active
+git-draft stash
 git-draft show main-abcdef
 git status

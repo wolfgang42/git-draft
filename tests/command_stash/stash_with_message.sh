@@ -9,6 +9,6 @@ echo 'hi' > example.txt
 
 echo 'This is a message' >> .git//GITDRAFT_COMMIT_EDITMSG
 
-GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef git-draft stash-active
+GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef git-draft stash
 git-draft show main-abcdef
 git status

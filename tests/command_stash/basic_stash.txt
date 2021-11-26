@@ -2,16 +2,13 @@
 + set +x
 + echo foo
 + echo hi
-+ echo 'This is a message'
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ git-draft stash-active
++ git-draft stash
 created new draft main-abcdef
 + git-draft show main-abcdef
-commit d1a61cd6c1da0dc31bb9481bab4ef50e7363a4e5
+commit 3543674ae5160809c271a1bf0232db640929f50d
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
-
-    This is a message
 
 Notes (drafts-info):
     Draft-on: branch main

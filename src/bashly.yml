@@ -18,6 +18,7 @@ commands:
 
 - group: Management
   import: src/create_command.yml
+- import: src/stash_command.yml
 - import: src/drop_command.yml
 - import: src/switch_command.yml
 
@@ -25,8 +26,7 @@ commands:
   import: src/apply_command.yml
 
 - group: Plumbing
-  import: src/stash_active_command.yml
-- import: src/activate_stashed_command.yml
+  import: src/activate_stashed_command.yml
 - import: src/active_is_empty_command.yml
 - import: src/describe_command.yml
 - import: src/get_commit_message_command.yml

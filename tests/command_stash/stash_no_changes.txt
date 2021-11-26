@@ -1,7 +1,7 @@
 + test_init_git_fixture
 + set +x
 + GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ git-draft stash-active
++ git-draft stash
 created new draft main-abcdef
 + git-draft show main-abcdef
 commit 879635a8f5f1198b8ce503e6f9cf0962c7e4fe7d

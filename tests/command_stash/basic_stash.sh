@@ -7,6 +7,6 @@ test_init_git_fixture
 echo 'foo' > a.txt
 echo 'hi' > example.txt
 
-GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef git-draft stash-active
+GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef git-draft stash
 git-draft show main-abcdef
 git status

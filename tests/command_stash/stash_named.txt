@@ -1,16 +1,24 @@
 + test_init_git_fixture
 + set +x
++ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
++ git-draft create -m 'Commit message here'
+created new draft main-abcdef
++ git-draft switch main-abcdef
+Already on 'main'
+Already up to date!
 + echo foo
 + echo hi
-+ GIT_DRAFT_TEST_RANDOM_6CHAR=abcdef
-+ git-draft stash-active
-created new draft main-abcdef
++ git-draft stash
+stashed draft refs/drafts/main-abcdef
 + git-draft show main-abcdef
-commit 3543674ae5160809c271a1bf0232db640929f50d
+commit c8ca5b05b377c271883daeed3cae106cadbe2f90
 Author: test <test@test>
 Date:   Thu Jan 1 00:00:00 1970 +0000
 
+    Commit message here
+
 Notes (drafts-info):
+    Draft-ref: refs/drafts/main-abcdef
     Draft-on: branch main
 
 diff --git a/a.txt b/a.txt

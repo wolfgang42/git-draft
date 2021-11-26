@@ -138,7 +138,8 @@ An "empty active draft" is simply what you get when
 * the working tree has no changes, and
 * `.git/GITDASH_DRAFT_COMMIT_EDITMSG` and `.git/GITDRAFT_NOTES` do not exist or are zero bytes long
 
-The plumbing commands `stash-active` and `activate-stashed` convert between the active and staged forms.
+The commands `stash` and `activate-stashed` convert between the active and staged forms.
+(The latter is a plumbing command, which should normally be called via `switch`.)
 They check that the active draft is empty before making changes to ensure that a bug doesn't cause two drafts to collide.
 The plumbing command `active-is-empty` implements the check for this state.
 
