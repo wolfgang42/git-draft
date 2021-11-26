@@ -8,7 +8,6 @@ example draft
 
 + git-draft switch main-abcdef
 Already on 'main'
-Already up to date!
 + git-draft get-commit-message --for-draft=active
 example draft
 

@@ -10,7 +10,6 @@ created new draft main-abcdef
 created new draft main-ghijkl
 + git-draft switch main-abcdef
 Already on 'main'
-Already up to date!
 + git-draft list
 * [1mmain-abcdef[0m [draft on main] 
   [1mmain-ghijkl[0m [draft on main] 

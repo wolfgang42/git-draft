@@ -26,7 +26,6 @@ Or undo this operation with:
 Turn off this advice by setting config variable advice.detachedHead to false
 
 HEAD is now at a895768 Add A
-Already up to date!
 + git status
 Not currently on any branch.
 nothing to commit, working tree clean

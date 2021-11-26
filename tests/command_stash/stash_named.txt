@@ -5,7 +5,6 @@
 created new draft main-abcdef
 + git-draft switch main-abcdef
 Already on 'main'
-Already up to date!
 + echo foo
 + echo hi
 + git-draft stash

@@ -9,7 +9,6 @@ created new draft main-abcdef
 + git-draft switch main-abcdef
 created new draft main-ghijkl
 Already on 'main'
-Already up to date!
 + git status
 On branch main
 nothing to commit, working tree clean
