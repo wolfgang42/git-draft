@@ -26,8 +26,7 @@
 #: - long: --auto-edit
 #:   help: "Automatically decide whether to open an editor based on whether -m etc. were passed. Can be overridden by --edit/--no-edit."
 
-args_require_one --from-stdin --for-draft --new
-args_mutually_exclusive --clear --message
+args_require_one --from-stdin --new --for-draft # NOTE --message is *not* mutually exclusive with these, and will override them
 args_mutually_exclusive --edit --no-edit # NOTE --auto-edit is *not* mutually exclusive with these, and will be overridden by them
 
 should_edit=false
@@ -90,12 +89,11 @@ git_editor() {
 	fi
 }
 
-set +o pipefail # TODO this prevents cat crashing out with SIGPIPE for reasons I haven't investigated thoroughly
-
 # Main pipeline - take a message and pass it through all the transforms it needs
 (
-	# Read original message
-	if [[ -v args[--from-stdin] ]]; then
+	if [[ -v args[--message] ]]; then
+		echo "${args[--message]}"
+	elif [[ -v args[--from-stdin] ]]; then
 		cat
 	elif [[ -v args[--new] ]]; then
 		echo -n
@@ -107,13 +105,6 @@ set +o pipefail # TODO this prevents cat crashing out with SIGPIPE for reasons I
 		else
 			git show -s --format=%B "$(ref_from_name "${args[--for-draft]}")"
 		fi
-	fi
-) | (
-	# Replace message if requested
-	if [[ -v args[--message] ]]; then
-		echo "${args[--message]}"
-	else
-		cat
 	fi
 ) | (
 	# Interrupt for editing if appropriate
