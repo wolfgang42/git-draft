@@ -17,6 +17,8 @@ if ! active_is_empty; then
 	echo "$(git_draft get-commit-message --for-draft=active | head -n1)" # TODO get message properly
 fi
 
+# shellcheck disable=SC2030
+# ^ shellcheck is buggy here, see https://github.com/koalaman/shellcheck/issues/2390
 git show-ref | cut -d' ' -f2- | (grep -E 'refs/drafts/'||true) | sed 's%refs/drafts/%%' | while read -r draft ; do
 	echo -n "  $(bold "$draft") "
 	echo -n "[$(git_draft describe "$draft")] "

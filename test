@@ -5,8 +5,12 @@ cd "$(dirname "$0")"
 
 ./run --help > /dev/null # Regenerate script
 
-# TODO work out what SC2030/SC2031 is complaining about and fix it
-shellcheck -e SC2030,SC2031 --shell=bash --external-sources ./run ./test ./git-draft tests/test_lib tests/{,**}/*.sh
+# Note that we test ./git-draft rather than the contents of ./src/ -- this gives shellcheck a global view,
+# but it's mainly because that way it understands that $args has been declared.
+#
+# Ignore SC2031 because it's currently being caused by https://github.com/koalaman/shellcheck/issues/2390
+# (any actual issues should also trigger SC2030 so we won't miss them anyhow)
+shellcheck -e SC2031 --shell=bash --external-sources ./run ./test ./git-draft tests/test_lib tests/{,**}/*.sh
 
 for test in tests/*.sh tests/**/*.sh; do
 	if ! bash "$test" &>"${test/.sh/.out}"; then
