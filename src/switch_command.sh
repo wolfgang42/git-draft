@@ -28,19 +28,19 @@ if ! active_is_empty; then
 	git_draft stash
 fi
 
-if [[ -v args[--onto] ]]; then
+if [[ -v 'args[--onto]' ]]; then
 	git checkout "${args[--onto]}"
-elif [[ -v args[--onto-head] ]]; then
+elif [[ -v 'args[--onto-head]' ]]; then
 	: # Do nothing, keep current head
-elif [[ -v args[--create] ]]; then
+elif [[ -v 'args[--create]' ]]; then
 	# Everything from here down only applies to existing drafts, not --create
 	args_mutually_exclusive --create --onto-branch --onto-detached-commit
-elif [[ -v args[--onto-detached-commit] ]]; then
+elif [[ -v 'args[--onto-detached-commit]' ]]; then
 	git checkout "$(ref_from_name "${args[draft-name]}")^" # Checkout parent
 else # --onto-branch, or no argument
 	git_checkout_serialized_head "$(git_draft get-trailer "${args[draft-name]}" Draft-on)"
 fi
 
-if [[ ! -v args[--create] ]]; then # Don't activate anything if we're creating a new draft
+if [[ ! -v 'args[--create]' ]]; then # Don't activate anything if we're creating a new draft
 	git_draft activate-stashed "${args[draft-name]}"
 fi

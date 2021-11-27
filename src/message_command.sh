@@ -22,14 +22,14 @@ get_message_args=()
 
 # Flags with args
 for flag in --message --file; do
-	if [[ -v args["$flag"] ]]; then
+	if [[ -v 'args["$flag"]' ]]; then
 		get_message_args+=("$flag" "${args["$flag"]}")
 	fi
 done
 
 # Flags without args
 for flag in --edit --no-edit; do
-	if [[ -v args["$flag"] ]]; then
+	if [[ -v 'args["$flag"]' ]]; then
 		get_message_args+=("$flag")
 	fi
 done

@@ -13,7 +13,7 @@
 #:   arg: value
 #:   help: Value to return if trailer does not exist
 
-if [[ -v args[--default] ]]; then
+if [[ -v 'args[--default]' ]]; then
 	export search_use_default=1
 	export search_default="${args[--default]}"
 fi

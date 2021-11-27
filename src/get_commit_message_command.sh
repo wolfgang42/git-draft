@@ -30,13 +30,13 @@ args_require_one --from-stdin --new --for-draft # NOTE --message is *not* mutual
 args_mutually_exclusive --edit --no-edit # NOTE --auto-edit is *not* mutually exclusive with these, and will be overridden by them
 
 should_edit=false
-if [[ -v args[--edit] ]]; then
+if [[ -v 'args[--edit]' ]]; then
 	should_edit=true
-elif [[ -v args[--no-edit] ]]; then
+elif [[ -v 'args[--no-edit]' ]]; then
 	should_edit=false
-elif [[ -v args[--auto-edit] ]]; then
+elif [[ -v 'args[--auto-edit]' ]]; then
 	should_edit=true
-	if [[ -v args[--message] ]]; then
+	if [[ -v 'args[--message]' ]]; then
 		should_edit=false
 	fi
 fi
@@ -46,7 +46,7 @@ git_editor() {
 	# (but reshuffled to simplify it for a "good enough" version in this script)
 	# NOTE this logic does not have any tests for it
 	
-	if [[ -z TERM ]] || [[ "$TERM" == "dumb" ]]; then
+	if [[ -z "$TERM" ]] || [[ "$TERM" == "dumb" ]]; then
 		is_terminal_dumb=true
 	else
 		is_terminal_dumb=false
@@ -66,16 +66,16 @@ git_editor() {
 		fi
 	fi
 	
-	if [[ -v GIT_EDITOR ]] && [[ "$GIT_EDITOR" == ':' ]]; then
+	if [[ -v 'GIT_EDITOR ]] && [[ "$GIT_EDITOR" == ':'' ]]; then
 		: # Do nothing - it's not entirely clear to me *why* launch_specified_editor has this logic,
 		: # but it does, so we duplicate it here.
-	elif [[ -v GIT_EDITOR ]]; then
+	elif [[ -v 'GIT_EDITOR' ]]; then
 		"$GIT_EDITOR" "$@"
 	elif [[ -n "$(git config core.editor)" ]]; then
 		"$(git config core.editor)" "$@"
 	elif [[ "$is_terminal_dumb" != "true" ]] && [[ -v VISUAL ]]; then
 		"$VISUAL" "$@"
-	elif [[ -v EDITOR ]]; then
+	elif [[ -v 'EDITOR' ]]; then
 		"$EDITOR" "$@"
 	elif [[ "$is_terminal_dumb" == "true" ]]; then
 		echo "Terminal is dumb, but EDITOR unset" >&2
@@ -91,13 +91,13 @@ git_editor() {
 
 # Main pipeline - take a message and pass it through all the transforms it needs
 (
-	if [[ -v args[--message] ]]; then
+	if [[ -v 'args[--message]' ]]; then
 		echo "${args[--message]}"
-	elif [[ -v args[--from-stdin] ]]; then
+	elif [[ -v 'args[--from-stdin]' ]]; then
 		cat
-	elif [[ -v args[--new] ]]; then
+	elif [[ -v 'args[--new]' ]]; then
 		echo -n
-	elif [[ -v args[--for-draft] ]]; then
+	elif [[ -v 'args[--for-draft]' ]]; then
 		if draft_is_active "${args[--for-draft]}"; then
 			if [[ -e "$(active_draft_editmsg_file)" ]]; then
 				cat "$(active_draft_editmsg_file)"

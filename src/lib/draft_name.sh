@@ -1,5 +1,5 @@
 random_6char() {
-	if [[ -v GIT_DRAFT_TEST_RANDOM_6CHAR ]]; then
+	if [[ -v 'GIT_DRAFT_TEST_RANDOM_6CHAR' ]]; then
 		echo "$GIT_DRAFT_TEST_RANDOM_6CHAR"
 		return
 	fi

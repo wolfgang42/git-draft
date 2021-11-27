@@ -1,7 +1,7 @@
 args_require_one() {
 	declare -i count=0
 	for arg in "$@"; do
-		if [[ -v args["$arg"] ]]; then
+		if [[ -v "args[${arg}]" ]]; then
 			count=$count+1
 		fi
 	done

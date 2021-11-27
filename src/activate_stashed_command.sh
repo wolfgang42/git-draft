@@ -21,7 +21,7 @@ git cherry-pick --no-commit --allow-empty "$draft_ref"
 git_draft get-commit-message --for-draft="$draft_ref" > "$(active_draft_editmsg_file)"
 # Update the active draft notes
 ( # TODO this is a hack for compatibility and should be removed
-	if [[ -v GIT_DRAFT_UNSTASH_IGNORE_NOTES ]]; then
+	if [[ -v 'GIT_DRAFT_UNSTASH_IGNORE_NOTES' ]]; then
 		echo
 	else
 		git_draft get-trailers "$draft_ref"
