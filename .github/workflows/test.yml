@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       
-      - run: GIT_DRAFT_WITHOUT_TTY=1 ./test
+      - run: DOCKERIZED_SHELLCHECK=1 GIT_DRAFT_WITHOUT_TTY=1 ./test
 
       - name: Upload script as artifact
         uses: actions/upload-artifact@v2

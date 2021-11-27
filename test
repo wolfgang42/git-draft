@@ -5,6 +5,11 @@ cd "$(dirname "$0")"
 
 ./run --help > /dev/null # Regenerate script
 
+if [[ -v 'DOCKERIZED_SHELLCHECK' ]] || ! command -v shellcheck &> /dev/null; then
+	shopt -s expand_aliases
+	alias shellcheck='docker run --rm -u $(id -u ${USER}):$(id -g ${USER}) --volume "$PWD:/mnt" koalaman/shellcheck:v0.8.0'
+fi
+
 # Note that we test ./git-draft rather than the contents of ./src/ -- this gives shellcheck a global view,
 # but it's mainly because that way it understands that $args has been declared.
 #
